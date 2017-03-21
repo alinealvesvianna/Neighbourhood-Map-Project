@@ -1,0 +1,18 @@
+html, body {
+    font-family: Arial, sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+    height: 100%;
+}
+
+.warning {
+    z-index: 10000;
+    position: absolute;
+    top: 0;
+    background: #fff;
+    padding: 10px;
+}

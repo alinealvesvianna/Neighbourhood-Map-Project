@@ -1,0 +1,34 @@
+{
+  "name": "neighbourhood-map-project",
+  "version": "1.0.0",
+  "description": "Application for locating neighborhood information",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinealvesvianna/neighbourhood-map-project.git"
+  },
+  "author": "Aline Vianna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alinealvesvianna/neighbourhood-map-project/issues"
+  },
+  "homepage": "https://github.com/alinealvesvianna/neighbourhood-map-project#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.0.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^1.0.2",
+    "grunt-contrib-htmlmin": "^2.0.0",
+    "grunt-contrib-imagemin": "^1.0.1",
+    "grunt-minified": "0.0.6",
+    "grunt-mkdir": "^1.0.0",
+    "grunt-replace": "^1.0.1"
+  },
+  "dependencies": {
+    "grunt-responsive-images": "^1.10.1",
+    "imagemin-mozjpeg": "^6.0.0"
+  }
+}
