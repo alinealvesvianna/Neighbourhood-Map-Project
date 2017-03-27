@@ -24,9 +24,9 @@ var ViewModel = function() {
 
     this.popUpLocationMessage = ko.observable(this.popUps()[0]);
 
-    this.setPopUp = function(data) {
-        self.popUpLocationMessage(data);
-    };
+    // this.setPopUp = function(data) {
+    //     self.popUpLocationMessage(data);
+    // };
 
     // this.sendTypeLocation = function(formElement) {
     //     // this.addressSet = this.cidade() + " " + this.bairro();
