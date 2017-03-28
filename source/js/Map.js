@@ -49,7 +49,7 @@ var initMap = function() {
         zoom: 6
     });
 
-    var zoomAutocomplete = new google.maps.places.Autocomplete(document.getElementById('testete'));
+    var zoomAutocomplete = new google.maps.places.Autocomplete(document.getElementById('field-search'));
     // Bias the boundaries within the map for the zoom to area text.
     zoomAutocomplete.bindTo('bounds', map);
 
@@ -70,8 +70,8 @@ var initMap = function() {
             infoWindow.setContent('Location found.');
             map.setCenter(pos);
         }, function() {
-            // handleLocationError(true, infoWindow, map.getCenter());
-            handleLocationError(true);
+            handleLocationError(true, infoWindow, map.getCenter());
+            // handleLocationError(true);
         });
     } else {
         handleLocationError(false, infoWindow, map.getCenter());
@@ -81,10 +81,10 @@ var initMap = function() {
         var error = browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.';
         vm.popUpLocationMessage().messagePickLocation(true);
         vm.popUpLocationMessage().messageTxtPopup(error);
-
+        findLocation();
     };
 
-    document.getElementById("bananada").addEventListener("click", function() {
+    document.getElementById("button-search").addEventListener("click", function() {
         findLocation();
     });
 
@@ -98,7 +98,7 @@ var initMap = function() {
         // Get the address or place that the user entered.
         // var address = vm.endereco();
 
-        var address = document.getElementById("testete").value;
+        var address = document.getElementById("field-search").value;
 
         // Make sure the address isn't blank.
         if (address == '') {
