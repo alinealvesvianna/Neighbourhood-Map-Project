@@ -1,0 +1,1566 @@
+{
+    "meta": {
+        "code": 200,
+        "requestId": "58dabc0c1ed219410f128503"
+    },
+    "response": {
+        "suggestedFilters": {
+            "header": "Toque para exibir:",
+            "filters": [{
+                "name": "Abertos agora",
+                "key": "openNow"
+            }]
+        },
+        "headerLocation": "Hamilton",
+        "headerFullLocation": "Hamilton",
+        "headerLocationGranularity": "city",
+        "totalResults": 31,
+        "suggestedBounds": {
+            "ne": {
+                "lat": 43.27230000900001,
+                "lng": -79.90656402339926
+            },
+            "sw": {
+                "lat": 43.25429999099999,
+                "lng": -79.93123597660073
+            }
+        },
+        "groups": [{
+            "type": "Recommended Places",
+            "name": "recommended",
+            "items": [{
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4b6b5d23f964a520a7032ce3",
+                    "name": "The Phoenix Bar & Grill",
+                    "contact": {
+                        "phone": "9055259140",
+                        "formattedPhone": "(905) 525-9140"
+                    },
+                    "location": {
+                        "address": "1280 Main St W",
+                        "crossStreet": "in The Refectory",
+                        "lat": 43.26296405474966,
+                        "lng": -79.92111682891846,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.26296405474966,
+                            "lng": -79.92111682891846
+                        }],
+                        "distance": 183,
+                        "postalCode": "L8S 4L8",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1280 Main St W (in The Refectory)", "Hamilton ON L8S 4L8", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d116941735",
+                        "name": "Bar",
+                        "pluralName": "Bares",
+                        "shortName": "Bar",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/nightlife\/pub_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": true,
+                    "stats": {
+                        "checkinsCount": 824,
+                        "usersCount": 287,
+                        "tipCount": 16
+                    },
+                    "url": "http:\/\/www.phoenixmcmaster.ca",
+                    "price": {
+                        "tier": 2,
+                        "message": "Razoável",
+                        "currency": "$"
+                    },
+                    "hasMenu": true,
+                    "rating": 8.8,
+                    "ratingColor": "73CF42",
+                    "ratingSignals": 49,
+                    "menu": {
+                        "type": "Menu",
+                        "label": "Menu",
+                        "anchor": "Exibir menu",
+                        "url": "https:\/\/foursquare.com\/v\/the-phoenix-bar--grill\/4b6b5d23f964a520a7032ce3\/menu",
+                        "mobileUrl": "https:\/\/foursquare.com\/v\/4b6b5d23f964a520a7032ce3\/device_menu"
+                    },
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Provavelmente aberto",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "4cb99b7b4c60a0936ca640ca",
+                    "createdAt": 1287232379,
+                    "text": "Try the buffalo wrap it's amazing!",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4cb99b7b4c60a0936ca640ca",
+                    "likes": {
+                        "count": 3,
+                        "groups": [],
+                        "summary": "3 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "3999901",
+                        "firstName": "Kelsey",
+                        "lastName": "Johnson",
+                        "gender": "female",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/12XSJM5G42AESY1B.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4b6b5d23f964a520a7032ce3-0"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4b99bec4f964a520b58f35e3",
+                    "name": "Campus Store",
+                    "contact": {
+                        "phone": "9055259140",
+                        "formattedPhone": "(905) 525-9140",
+                        "twitter": "MACBookstore"
+                    },
+                    "location": {
+                        "address": "Gilmour Hall B101",
+                        "crossStreet": "McMaster University",
+                        "lat": 43.26310468695283,
+                        "lng": -79.91848826408386,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.26310468695283,
+                            "lng": -79.91848826408386
+                        }],
+                        "distance": 39,
+                        "postalCode": "L8S 4L8",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["Gilmour Hall B101 (McMaster University)", "Hamilton ON L8S 4L8", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1b1941735",
+                        "name": "Livraria da Faculdade",
+                        "pluralName": "Livrarias da Faculdade",
+                        "shortName": "Livraria da Faculdade",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/shops\/bookstore_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": true,
+                    "stats": {
+                        "checkinsCount": 363,
+                        "usersCount": 93,
+                        "tipCount": 6
+                    },
+                    "rating": 7.2,
+                    "ratingColor": "C5DE35",
+                    "ratingSignals": 8,
+                    "venueRatingBlacklisted": true,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Provavelmente aberto",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "4e4ac7d2922e67bd4a084530",
+                    "createdAt": 1313523666,
+                    "text": "Best selection of stationery items.",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4e4ac7d2922e67bd4a084530",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "12630942",
+                        "firstName": "DeGroote Marketing Association",
+                        "gender": "none",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/TWB4XCMQAJWIEWBQ.jpg"
+                        },
+                        "type": "page"
+                    }
+                }],
+                "referralId": "e-0-4b99bec4f964a520b58f35e3-1"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4d21085e4c4f60fcb765e4dc",
+                    "name": "Union Market",
+                    "contact": {
+                        "twitter": "msu_unionmarket"
+                    },
+                    "location": {
+                        "address": "MUSC, 1280 Main Street West",
+                        "crossStreet": "McMaster University",
+                        "lat": 43.263378137529045,
+                        "lng": -79.91749048233032,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.263378137529045,
+                            "lng": -79.91749048233032
+                        }],
+                        "distance": 114,
+                        "postalCode": "L8S 4S4",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["MUSC, 1280 Main Street West (McMaster University)", "Hamilton ON L8S 4S4", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1e0931735",
+                        "name": "Cafeteria",
+                        "pluralName": "Cafeterias",
+                        "shortName": "Cafeteria",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/coffeeshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 451,
+                        "usersCount": 79,
+                        "tipCount": 8
+                    },
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 7.0,
+                    "ratingColor": "C5DE35",
+                    "ratingSignals": 10,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Provavelmente aberto",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "4e248269e4cdf68591a3bc42",
+                    "createdAt": 1311015529,
+                    "text": "The fair trade coffee is awesome today. Such a great selection!",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4e248269e4cdf68591a3bc42",
+                    "likes": {
+                        "count": 1,
+                        "groups": [],
+                        "summary": "1 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 1,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "7150556",
+                        "firstName": "Duncan",
+                        "lastName": "Thompson",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/POFZ2LSW3ISLLO2I.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4d21085e4c4f60fcb765e4dc-2"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4b9fe09df964a520c54637e3",
+                    "name": "Cupcakes of Westdale Village",
+                    "contact": {
+                        "phone": "9053088484",
+                        "formattedPhone": "(905) 308-8484"
+                    },
+                    "location": {
+                        "address": "1050 King Street West",
+                        "lat": 43.261482,
+                        "lng": -79.90702,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.261482,
+                            "lng": -79.90702
+                        }],
+                        "distance": 984,
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1050 King Street West", "Hamilton ON", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1bc941735",
+                        "name": "Casa de Cupcake",
+                        "pluralName": "Casas de Cupcake",
+                        "shortName": "Cupcake",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/cupcakes_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 131,
+                        "usersCount": 88,
+                        "tipCount": 9
+                    },
+                    "price": {
+                        "tier": 2,
+                        "message": "Razoável",
+                        "currency": "$"
+                    },
+                    "rating": 8.4,
+                    "ratingColor": "73CF42",
+                    "ratingSignals": 16,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "4fa3f575e4b0d6f4bb8c8c22",
+                    "createdAt": 1336145269,
+                    "text": "Chocolate\/Chocolate and Luscious Lemon are both great! And they have puppycakes!",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4fa3f575e4b0d6f4bb8c8c22",
+                    "likes": {
+                        "count": 1,
+                        "groups": [],
+                        "summary": "1 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "20093572",
+                        "firstName": "Cupcake Crusaders",
+                        "gender": "none",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/A2KPGHNNYKPUO531.jpg"
+                        },
+                        "type": "page"
+                    }
+                }],
+                "referralId": "e-0-4b9fe09df964a520c54637e3-3"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4bad1728f964a5208d2c3be3",
+                    "name": "Booster Juice",
+                    "contact": {
+                        "phone": "9055259140",
+                        "formattedPhone": "(905) 525-9140",
+                        "twitter": "boosterjuice",
+                        "facebook": "203346893039019",
+                        "facebookUsername": "boosterjuice",
+                        "facebookName": "Booster Juice"
+                    },
+                    "location": {
+                        "address": "1280 Main Street",
+                        "crossStreet": "btwn Hollywood & Thorndale St. N",
+                        "lat": 43.26341979,
+                        "lng": -79.91754108,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.26341979,
+                            "lng": -79.91754108
+                        }],
+                        "distance": 110,
+                        "postalCode": "L8S 4K1",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1280 Main Street (btwn Hollywood & Thorndale St. N)", "Hamilton ON L8S 4K1", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "52f2ab2ebcbc57f1066b8b41",
+                        "name": "Casa de Smoothies",
+                        "pluralName": "Casas de Smoothies",
+                        "shortName": "Casa de Smoothies",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/juicebar_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": true,
+                    "stats": {
+                        "checkinsCount": 75,
+                        "usersCount": 46,
+                        "tipCount": 0
+                    },
+                    "url": "http:\/\/www.facebook.com\/boosterjuice",
+                    "rating": 6.8,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 0,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Aberto até 19:00",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "storeId": "381",
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "referralId": "e-0-4bad1728f964a5208d2c3be3-4"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4b719ee7f964a520a0512de3",
+                    "name": "Basilique",
+                    "contact": {},
+                    "location": {
+                        "address": "1065 King Street West",
+                        "lat": 43.261074,
+                        "lng": -79.907711,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.261074,
+                            "lng": -79.907711
+                        }],
+                        "distance": 940,
+                        "postalCode": "L8S",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1065 King Street West", "Hamilton ON L8S", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d115941735",
+                        "name": "Restaurante Árabe",
+                        "pluralName": "Restaurantes Árabes",
+                        "shortName": "Árabe",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/middleeastern_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 155,
+                        "usersCount": 88,
+                        "tipCount": 6
+                    },
+                    "price": {
+                        "tier": 2,
+                        "message": "Razoável",
+                        "currency": "$"
+                    },
+                    "hasMenu": true,
+                    "rating": 7.7,
+                    "ratingColor": "C5DE35",
+                    "ratingSignals": 9,
+                    "menu": {
+                        "type": "Menu",
+                        "label": "Menu",
+                        "anchor": "Exibir menu",
+                        "url": "https:\/\/foursquare.com\/v\/basilique\/4b719ee7f964a520a0512de3\/menu",
+                        "mobileUrl": "https:\/\/foursquare.com\/v\/4b719ee7f964a520a0512de3\/device_menu"
+                    },
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "56352747cd10550fe1387702",
+                    "createdAt": 1446324039,
+                    "text": "Best falafel I've had in a long time",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/56352747cd10550fe1387702",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "9687224",
+                        "firstName": "Parth",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/9687224-L3BYFT1LMMKF4X3Q.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4b719ee7f964a520a0512de3-5"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4fd4125ae4b0784189e797de",
+                    "name": "Starbucks",
+                    "contact": {},
+                    "location": {
+                        "address": "1341 Main St W",
+                        "crossStreet": "at Emerson St",
+                        "lat": 43.25772602367786,
+                        "lng": -79.91911440931753,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.25772602367786,
+                            "lng": -79.91911440931753
+                        }],
+                        "distance": 620,
+                        "postalCode": "L8S 1C6",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1341 Main St W (at Emerson St)", "Hamilton ON L8S 1C6", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1e0931735",
+                        "name": "Cafeteria",
+                        "pluralName": "Cafeterias",
+                        "shortName": "Cafeteria",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/coffeeshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 1018,
+                        "usersCount": 334,
+                        "tipCount": 8
+                    },
+                    "url": "http:\/\/www.starbucks.com",
+                    "price": {
+                        "tier": 3,
+                        "message": "Caro",
+                        "currency": "$"
+                    },
+                    "rating": 7.1,
+                    "ratingColor": "C5DE35",
+                    "ratingSignals": 40,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Aberto até 23:00",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "55db7c94498e025f6fd6b626",
+                    "createdAt": 1440447636,
+                    "text": "Great coffee as usual, but the place is small and not suitable for reading or working.",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/55db7c94498e025f6fd6b626",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "68849447",
+                        "firstName": "Muhammad",
+                        "lastName": "Alrabeiah",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/RQNPJGQQ2CFHXWXW.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4fd4125ae4b0784189e797de-6"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4b8a6ee2f964a5209a6c32e3",
+                    "name": "David Braley Athletic Centre",
+                    "contact": {
+                        "phone": "9055259140",
+                        "formattedPhone": "(905) 525-9140",
+                        "twitter": "mcmasteru"
+                    },
+                    "location": {
+                        "address": "1280 Main St W",
+                        "crossStreet": "on MMC",
+                        "lat": 43.26508131632468,
+                        "lng": -79.91641759872437,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.26508131632468,
+                            "lng": -79.91641759872437
+                        }],
+                        "distance": 282,
+                        "postalCode": "L8S 4L8",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1280 Main St W (on MMC)", "Hamilton ON L8S 4L8", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1b2941735",
+                        "name": "Ginásio de Esportes da Faculdade",
+                        "pluralName": "Ginásios de Esportes da Faculdade",
+                        "shortName": "Ginásio",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/building\/gym_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 1868,
+                        "usersCount": 318,
+                        "tipCount": 2
+                    },
+                    "rating": 6.6,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 12,
+                    "venueRatingBlacklisted": true,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Provavelmente aberto",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 1,
+                        "summary": "Uma outra pessoa está aqui",
+                        "groups": [{
+                            "type": "others",
+                            "name": "Outras pessoas aqui",
+                            "count": 1,
+                            "items": []
+                        }]
+                    }
+                },
+                "tips": [{
+                    "id": "4eb81fb8469073bbc7474542",
+                    "createdAt": 1320689592,
+                    "text": "Come before 5pm or else it gets crazy packed here.",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4eb81fb8469073bbc7474542",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "14254015",
+                        "firstName": "Samantha",
+                        "lastName": "Asare",
+                        "gender": "female",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/IPIXCDCTP5DUDK5U.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4b8a6ee2f964a5209a6c32e3-7"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4c141f6882a3c9b66bc8fcf8",
+                    "name": "Maccheroni",
+                    "contact": {},
+                    "location": {
+                        "lat": 43.257800843065965,
+                        "lng": -79.92647643161615,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.257800843065965,
+                            "lng": -79.92647643161615
+                        }],
+                        "distance": 867,
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["Hamilton ON", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d110941735",
+                        "name": "Restaurante Italiano",
+                        "pluralName": "Restaurantes Italianos",
+                        "shortName": "Italiano",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/italian_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 156,
+                        "usersCount": 76,
+                        "tipCount": 4
+                    },
+                    "price": {
+                        "tier": 2,
+                        "message": "Razoável",
+                        "currency": "$"
+                    },
+                    "rating": 7.2,
+                    "ratingColor": "C5DE35",
+                    "ratingSignals": 11,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "4f384cc6e4b0179e5e84a900",
+                    "createdAt": 1329089734,
+                    "text": "Try the baked ziti!",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4f384cc6e4b0179e5e84a900",
+                    "likes": {
+                        "count": 3,
+                        "groups": [],
+                        "summary": "3 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 2,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "6540282",
+                        "firstName": "Ryan",
+                        "lastName": "Ervin",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/ZR2GW4HHMW2ZA2ZR.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4c141f6882a3c9b66bc8fcf8-8"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "52cae73c11d277b807e96991",
+                    "name": "Starbucks",
+                    "contact": {},
+                    "location": {
+                        "address": "MUSC (in McMaster University)",
+                        "lat": 43.26306009665476,
+                        "lng": -79.91799392853963,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.26306009665476,
+                            "lng": -79.91799392853963
+                        }],
+                        "distance": 78,
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["MUSC (in McMaster University)", "Hamilton ON", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1e0931735",
+                        "name": "Cafeteria",
+                        "pluralName": "Cafeterias",
+                        "shortName": "Cafeteria",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/coffeeshop_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 134,
+                        "usersCount": 11,
+                        "tipCount": 1
+                    },
+                    "url": "http:\/\/www.starbucks.com",
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 6.4,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 3,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "5457c734498eb4d8b151579b",
+                    "createdAt": 1415038772,
+                    "text": "They are nowhere near as efficient as a regular off campus Starbucks",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/5457c734498eb4d8b151579b",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "4361508",
+                        "firstName": "Kevyn",
+                        "lastName": "Chau",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/4361508-IXVDL1WT55LOPNE1"
+                        }
+                    }
+                }],
+                "referralId": "e-0-52cae73c11d277b807e96991-9"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "52d077b2498e7b98e9c9ad26",
+                    "name": "Pink's Burgers",
+                    "contact": {},
+                    "location": {
+                        "lat": 43.257816142253056,
+                        "lng": -79.91886298560871,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.257816142253056,
+                            "lng": -79.91886298560871
+                        }],
+                        "distance": 610,
+                        "cc": "CA",
+                        "country": "Canadá",
+                        "formattedAddress": ["Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d16c941735",
+                        "name": "Hamburgueria",
+                        "pluralName": "Hamburguerias",
+                        "shortName": "Hambúrguer",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/burger_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 46,
+                        "usersCount": 23,
+                        "tipCount": 1
+                    },
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 6.7,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 9,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "572a354d498e8fef3b463a87",
+                    "createdAt": 1462383949,
+                    "text": "The double with bacon and cheese! Favourite smashed burger around!!",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/572a354d498e8fef3b463a87",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "159777181",
+                        "firstName": "Erik",
+                        "lastName": "Pechmann",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/159777181-PFZRAVEUUO5OL0QB.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-52d077b2498e7b98e9c9ad26-10"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4b7ca21af964a520b49e2fe3",
+                    "name": "Pita Pit",
+                    "contact": {},
+                    "location": {
+                        "address": "1056 King Street West",
+                        "lat": 43.261322,
+                        "lng": -79.90739,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.261322,
+                            "lng": -79.90739
+                        }],
+                        "distance": 958,
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1056 King Street West", "Hamilton ON", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1c5941735",
+                        "name": "Sanduicheria",
+                        "pluralName": "Sanduicherias",
+                        "shortName": "Sanduíche",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/deli_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": true,
+                    "stats": {
+                        "checkinsCount": 362,
+                        "usersCount": 168,
+                        "tipCount": 4
+                    },
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 6.9,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 12,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Provavelmente aberto",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "4bdb7f5f70c603bb86d699b4",
+                    "createdAt": 1272676191,
+                    "text": "Breakfast pitas are better than they might at first appear!",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/4bdb7f5f70c603bb86d699b4",
+                    "likes": {
+                        "count": 1,
+                        "groups": [],
+                        "summary": "1 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 1,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "968339",
+                        "firstName": "Dave",
+                        "lastName": "Escobedo",
+                        "gender": "male",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/2A2G2SIZF15EM0E0.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4b7ca21af964a520b49e2fe3-11"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4c405e7a520fa593a3e6c7ac",
+                    "name": "Maple Leaf Pancake House",
+                    "contact": {
+                        "phone": "9055224995",
+                        "formattedPhone": "(905) 522-4995"
+                    },
+                    "location": {
+                        "address": "1520 Main St W",
+                        "lat": 43.25765557670451,
+                        "lng": -79.92325186545862,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.25765557670451,
+                            "lng": -79.92325186545862
+                        }],
+                        "distance": 720,
+                        "postalCode": "L8S 1C8",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1520 Main St W", "Hamilton ON L8S 1C8", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d143941735",
+                        "name": "Café da Manhã",
+                        "pluralName": "Cafés da Manhã",
+                        "shortName": "Café da manhã",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/breakfast_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 341,
+                        "usersCount": 217,
+                        "tipCount": 7
+                    },
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 6.6,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 22,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "isOpen": false,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "5210b91711d2fbdd48ecb87d",
+                    "createdAt": 1376827671,
+                    "text": "Fantastic bacon and pancakes",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/5210b91711d2fbdd48ecb87d",
+                    "likes": {
+                        "count": 2,
+                        "groups": [],
+                        "summary": "2 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 2,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "62583248",
+                        "firstName": "Chanell",
+                        "lastName": "Ross",
+                        "gender": "female",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/LB5YTYSJML2EAOS0.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4c405e7a520fa593a3e6c7ac-12"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4ba9734cf964a520f3273ae3",
+                    "name": "Tally Ho",
+                    "contact": {
+                        "phone": "9057778858",
+                        "formattedPhone": "(905) 777-8858"
+                    },
+                    "location": {
+                        "address": "1536 Main Street West",
+                        "lat": 43.2576842625,
+                        "lng": -79.924115,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.2576842625,
+                            "lng": -79.924115
+                        }],
+                        "distance": 754,
+                        "postalCode": "L8s1e4",
+                        "cc": "CA",
+                        "city": "Hamilton Division",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1536 Main Street West", "Hamilton Division ON L8s1e4", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d16e941735",
+                        "name": "Restaurante Fast Food",
+                        "pluralName": "Restaurantes Fast Food",
+                        "shortName": "Fast Food",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/fastfood_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 263,
+                        "usersCount": 141,
+                        "tipCount": 7
+                    },
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 6.6,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 16,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "isOpen": false,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "53857c0111d20251f98ac9c0",
+                    "createdAt": 1401256961,
+                    "text": "Great food, but our server was a total bitch.",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/53857c0111d20251f98ac9c0",
+                    "likes": {
+                        "count": 1,
+                        "groups": [],
+                        "summary": "1 curtir"
+                    },
+                    "logView": true,
+                    "agreeCount": 1,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "82070276",
+                        "firstName": "Megan",
+                        "lastName": "Knights",
+                        "gender": "female",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/82070276-E0L5QGYRJWXWEMJJ.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4ba9734cf964a520f3273ae3-13"
+            }, {
+                "reasons": {
+                    "count": 0,
+                    "items": [{
+                        "summary": "Este lugar é popular",
+                        "type": "general",
+                        "reasonName": "globalInteractionReason"
+                    }]
+                },
+                "venue": {
+                    "id": "4bd3175477b29c74a2e18f82",
+                    "name": "Subway",
+                    "contact": {
+                        "phone": "9055227827",
+                        "formattedPhone": "(905) 522-7827",
+                        "twitter": "subwaycanada",
+                        "facebook": "248132900755",
+                        "facebookUsername": "SubwayCanada",
+                        "facebookName": "Subway Canada"
+                    },
+                    "location": {
+                        "address": "1335 Main St. W",
+                        "crossStreet": "at Broadway Ave.",
+                        "lat": 43.25768205647421,
+                        "lng": -79.91880286244108,
+                        "labeledLatLngs": [{
+                            "label": "display",
+                            "lat": 43.25768205647421,
+                            "lng": -79.91880286244108
+                        }],
+                        "distance": 625,
+                        "postalCode": "L8S 1C6",
+                        "cc": "CA",
+                        "city": "Hamilton",
+                        "state": "ON",
+                        "country": "Canadá",
+                        "formattedAddress": ["1335 Main St. W (at Broadway Ave.)", "Hamilton ON L8S 1C6", "Canadá"]
+                    },
+                    "categories": [{
+                        "id": "4bf58dd8d48988d1c5941735",
+                        "name": "Sanduicheria",
+                        "pluralName": "Sanduicherias",
+                        "shortName": "Sanduíche",
+                        "icon": {
+                            "prefix": "https:\/\/ss3.4sqi.net\/img\/categories_v2\/food\/deli_",
+                            "suffix": ".png"
+                        },
+                        "primary": true
+                    }],
+                    "verified": false,
+                    "stats": {
+                        "checkinsCount": 376,
+                        "usersCount": 125,
+                        "tipCount": 3
+                    },
+                    "url": "http:\/\/www.subway.ca",
+                    "price": {
+                        "tier": 1,
+                        "message": "Barato",
+                        "currency": "$"
+                    },
+                    "rating": 6.4,
+                    "ratingColor": "FFC800",
+                    "ratingSignals": 5,
+                    "allowMenuUrlEdit": true,
+                    "beenHere": {
+                        "count": 0,
+                        "marked": false,
+                        "lastCheckinExpiredAt": 0
+                    },
+                    "hours": {
+                        "status": "Provavelmente aberto",
+                        "isOpen": true,
+                        "isLocalHoliday": false
+                    },
+                    "photos": {
+                        "count": 0,
+                        "groups": []
+                    },
+                    "hereNow": {
+                        "count": 0,
+                        "summary": "Não há ninguém aqui",
+                        "groups": []
+                    }
+                },
+                "tips": [{
+                    "id": "52309ad6498e85d35c25b111",
+                    "createdAt": 1378917078,
+                    "text": "Chicken teriyaki when wednesdays are the best! Love cold cuts too! Sweet onion sauce is the best",
+                    "type": "user",
+                    "canonicalUrl": "https:\/\/foursquare.com\/item\/52309ad6498e85d35c25b111",
+                    "logView": true,
+                    "agreeCount": 0,
+                    "disagreeCount": 0,
+                    "todo": {
+                        "count": 0
+                    },
+                    "user": {
+                        "id": "66044966",
+                        "firstName": "Mariella",
+                        "lastName": "Bueno",
+                        "gender": "female",
+                        "photo": {
+                            "prefix": "https:\/\/igx.4sqi.net\/img\/user\/",
+                            "suffix": "\/66044966-0JHWGVBA3X3KLFPL.jpg"
+                        }
+                    }
+                }],
+                "referralId": "e-0-4bd3175477b29c74a2e18f82-14"
+            }]
+        }]
+    }
+}
