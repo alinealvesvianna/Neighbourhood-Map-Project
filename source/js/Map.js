@@ -141,7 +141,41 @@
 
 var map;
 
-var FourSquareData = function(data) {
+
+var DataJson = function() {
+
+    var locationSearch = map.getCenter().toUrlValue();
+
+    var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?"
+
+    fourSquareUrl += $.param({
+        'client_id': 'Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM',
+        'client_secret': 'S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O',
+        'v': '20160328',
+        'radius': '1000',
+        'limit': '15'
+    })
+
+    fourSquareUrl +=  "&ll=" + locationSearch;
+
+    // var urlRequest = fourSquareUrl + "ll=" + locationSearch;
+
+    var fourSquareData = $.getJSON(fourSquareUrl, function(data) {
+        console.log(data)
+        // var articles = data.response.docs;
+
+    });
+
+    fourSquareData.fail(function() {
+        console.log('deu merda');
+    });
+
+
+};
+
+
+
+var FourSquareLocal = function(data) {
 
     this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(
@@ -165,14 +199,7 @@ var FourSquareData = function(data) {
 
 var ViewModel = function() {
 
-    var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?" +
-        "client_id=Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM&" +
-        "client_secret=S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O&" +
-        "v=20160328&" +
-        "radius=1000&" +
-        "limit=15&";
 
-    var locationSearch = map.getCenter().toUrlValue();
 };
 
 function initialize() {
@@ -192,8 +219,10 @@ function initialize() {
                 lng: position.coords.longitude
             };
             map.setCenter(initialPosition);
+            DataJson();
         }, function() {
             handleLocationError(true);
+            DataJson();
         });
     } else {
         handleLocationError(false);
@@ -208,7 +237,7 @@ function initialize() {
 
 
 
-    var vm = new ViewModel();
-    ko.applyBindings(vm);
+    // var vm = new ViewModel();
+    // ko.applyBindings(vm);
 
 };
