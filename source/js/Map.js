@@ -139,43 +139,91 @@
 //url json exemplo foursquare
 // https://api.foursquare.com/v2/venues/explore?client_id=Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM&client_secret=S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O&v=20160328&radius=1000&limit=15&ll=43.2633,%20-79.9189
 
+//var dataJson = {
+
+//    locationSearch: map.getCenter().toUrlValue(),
+
+//    fourSquareUrl: "https://api.foursquare.com/v2/venues/explore?",
+
+//    fourSquareUrlParams: function () {
+//        fourSquareUrl += $.param({
+//            'client_id': 'Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM',
+//            'client_secret': 'S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O',
+//            'v': '20160328',
+//            'radius': '1000',
+//            'limit': '15'
+//        });
+//    },
+
+//    fourSquareUrlComplete: function () {
+//        fourSquareUrl += "&ll=" + locationSearch;
+//    },
+
+
+//    fourSquareRequest: function () {
+//        $.getJSON(fourSquareUrl, function (data) {
+//            //this.fourSquareData = data.response.groups[0].items;
+//            var vm = new ViewModel();
+//            ko.applyBindings(vm);
+//        })
+//        .fail(function () {
+//            console.log('deu ruim');
+//        });
+//    }
+
+//}
+
+
 var map;
 
 
-var DataJson = function() {
+//var dataJson = function () {
 
-    var locationSearch = map.getCenter().toUrlValue();
+//    var locationSearch = map.getCenter().toUrlValue();
 
-    var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?"
+//    var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?"
 
-    fourSquareUrl += $.param({
-        'client_id': 'Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM',
-        'client_secret': 'S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O',
-        'v': '20160328',
-        'radius': '1000',
-        'limit': '15'
-    })
+//    fourSquareUrl += $.param({
+//        'client_id': 'Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM',
+//        'client_secret': 'S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O',
+//        'v': '20160328',
+//        'radius': '1000',
+//        'limit': '15'
+//    })
 
-    fourSquareUrl +=  "&ll=" + locationSearch;
+//    fourSquareUrl += "&ll=" + locationSearch;
 
-    // var urlRequest = fourSquareUrl + "ll=" + locationSearch;
+//    // var urlRequest = fourSquareUrl + "ll=" + locationSearch;
 
-    var fourSquareData = $.getJSON(fourSquareUrl, function(data) {
-        console.log(data)
-        // var articles = data.response.docs;
+//    var fourSquareRequest = $.getJSON(fourSquareUrl, function (data) {
+//        //console.log(data)
+//        // var articles = data.response.docs;
 
-    });
-
-    fourSquareData.fail(function() {
-        console.log('deu merda');
-    });
+//        //this.fourSquareData = data.response.groups[0].items;
+//    });
 
 
-};
+//    // if (typeof fourSquareRequest == 'object') {
+//    //        console.log("É UM OBJETO, NÃO PRECISA DE PARSE!!!!")
+//    // }
+//    // else {
+//    //     console.log("chupa que é de uva!")
+//    // }
+
+//    //var fourSquareData = JSON.parse(fourSquareRequest);
+//    //console.log(fourSquareData);
+
+//    fourSquareRequest.fail(function () {
+//        console.log('deu ruim');
+//    });
+//};
 
 
 
-var FourSquareLocal = function(data) {
+
+
+
+var FourSquareLocal = function (data) {
 
     this.marker = new google.maps.Marker({
         position: new google.maps.LatLng(
@@ -189,17 +237,56 @@ var FourSquareLocal = function(data) {
 
     this.placeName = data.venue.name;
     this.placeContact = data.venue.contact.formattedPhone;
-    this.placeAdress = data.venue.location.formattedAddress[n];
-    this.placeCategories = data.venue.categories[n].name;
+    this.placeAdress = data.venue.location.formattedAddress[0];
+    this.placeCategories = data.venue.categories[0].name;
 
-
+    this.marker.setMap(map);
 
 
 };
 
-var ViewModel = function() {
+var ViewModel = function () {
 
+    var self = this;
 
+    this.fourSquareAllLocals = ko.observableArray([]);
+
+    self.makeRequestFourSquare = function () {
+
+        var locationSearch = map.getCenter().toUrlValue();
+
+        var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";
+
+        fourSquareUrl += $.param({
+            'client_id': 'Y0KMJ2SSNWWUUYNWAFQ04EJAHGK3XJYJMLHCNVCJ4PVT5CEM',
+            'client_secret': 'S4L0M0BTPHPMC0LY2R5JS22RIASITWR0VRV1LMKGP44HIM2O',
+            'v': '20160328',
+            'radius': '1000',
+            'limit': '15'
+        });
+
+        fourSquareUrl += "&ll=" + locationSearch;
+
+        $.getJSON(fourSquareUrl, function (data) {
+            var fourSquareData = data.response.groups[0].items;
+                //fourSquareDataLength = data.response.groups[0].items.length;
+
+            console.log(fourSquareData);
+
+            //for (var i = 0; i < fourSquareDataLength; i++) {
+
+            for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
+                var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
+                self.fourSquareAllLocals.push(fourSquareLocal);
+            }
+
+        })
+
+       .fail(function () {
+           console.log('deu ruim');
+       });
+
+    }
 };
 
 function initialize() {
@@ -213,16 +300,16 @@ function initialize() {
 
     // pega a geolocalização pela api do HTML5
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
+        navigator.geolocation.getCurrentPosition(function (position) {
             var initialPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             map.setCenter(initialPosition);
-            DataJson();
-        }, function() {
+            vm.makeRequestFourSquare();
+        }, function () {
             handleLocationError(true);
-            DataJson();
+            vm.makeRequestFourSquare();
         });
     } else {
         handleLocationError(false);
@@ -235,9 +322,8 @@ function initialize() {
         console.log(error);
     };
 
+    var vm = new ViewModel();
+    ko.applyBindings(vm);
 
-
-    // var vm = new ViewModel();
-    // ko.applyBindings(vm);
 
 };

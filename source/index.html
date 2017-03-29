@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -14,11 +14,39 @@
     <div data-bind="with:popUpLocationMessage">
         <div class="warning" data-bind="visible: messagePickLocation">
             <p data-bind="text: messageTxtPopup"></p>
-            <!-- <form data-bind="submit: $parent.sendTypeLocation"> -->
             <form>
-              <!-- <input data-bind="value: cidade" type="text">
-              <input data-bind="value: bairro" type="text"> -->
               <input id="field-search" data-bind="value: endereco" type="text">
+              <button id="button-search" type="button">enviar cidade</button>
+            </form>
+        </div>
+    </div>
+    <script src="js/knockout-3.4.1.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyBiInL0pa43U0MNYtexTsxPySm6JzVRyRI&v=3&callback=initialize"></script>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/Map.js"></script>
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Neighbourhood Map Project</title>
+</head>
+
+<body>
+    <div id="map"></div>
+    <div>
+        <div>
+            <p></p>
+            <form>
+              <input id="field-search" type="text">
               <button id="button-search" type="button">enviar cidade</button>
             </form>
         </div>
