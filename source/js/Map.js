@@ -1,25 +1,40 @@
 var map,
+    informationPlace,
     bounds;
 
 var FourSquareLocal = function (data) {
-    this.marker = new google.maps.Marker({
+
+    var self = this;
+
+    self.marker = new google.maps.Marker({
         position: {
             lat: data.venue.location.lat,
             lng: data.venue.location.lng
         },
         icon: data.venue.categories[0].icon.prefix + "bg_44" + data.venue.categories[0].icon.suffix,
         animation: google.maps.Animation.DROP,
-        // selected: ko.observable(false)
+        title: data.venue.name
+        //selected: ko.observable(false)
     });
 
-    this.placeName = data.venue.name;
-    this.placeContact = data.venue.contact.formattedPhone;
-    this.placeAdress = data.venue.location.formattedAddress[0];
-    this.placeCategories = data.venue.categories[0].name;
+
+    self.infowindow = new google.maps.InfoWindow({
+        content: informationPlace
+    });
+
+    //self.infowindow.setContent(self.marker.informationPlace);
+
+    self.placeName = data.venue.name;
+    self.placeContact = data.venue.contact.formattedPhone;
+    self.placeAddress = data.venue.location.formattedAddress[0];
+    self.placeCategories = data.venue.categories[0].name;
+    self.placeRating = data.venue.rating;
 
     //atualiza a posição de cada marker na variável bounds
-    this.bounds = bounds.extend(this.marker.position);
-    this.marker.setMap(map);
+    self.bounds = bounds.extend(self.marker.position);
+
+    //self.infowindow.open(map, self.marker);
+    self.marker.setMap(map);
 
 };
 
@@ -43,6 +58,15 @@ var ViewModel = function () {
             var fourSquareData = data.response.groups[0].items;
             for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                 var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
+                ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
+                informationPlace = $("#infoWindowMaster").html();
+                ko.cleanNode($("#infoWindowMaster")[0]);
+                 google.maps.event.addListener(fourSquareLocal.marker, "click", function () {
+                    //this.selected(true);
+                    fourSquareLocal.infowindow.open(map, fourSquareLocal.marker[i]);
+
+                })
+
                 self.fourSquareAllLocals.push(fourSquareLocal);
             }
             //depois que sair do looping, centraliza os markers achados na tela
@@ -90,5 +114,5 @@ function initialize() {
     };
 
     var vm = new ViewModel();
-    ko.applyBindings(vm);
+    ko.applyBindings(vm, $("#containerMaster")[0]);
 };
