@@ -13,8 +13,8 @@ var FourSquareLocal = function (data) {
         },
         icon: data.venue.categories[0].icon.prefix + "bg_44" + data.venue.categories[0].icon.suffix,
         animation: google.maps.Animation.DROP,
-        title: data.venue.name
-        //selected: ko.observable(false)
+        title: data.venue.name,
+        selected: ko.observable(false)
     });
 
 
@@ -33,7 +33,10 @@ var FourSquareLocal = function (data) {
     //atualiza a posição de cada marker na variável bounds
     self.bounds = bounds.extend(self.marker.position);
 
-    //self.infowindow.open(map, self.marker);
+    //if (self.marker.selected === ko.observable(true)) {
+        self.infowindow.open(map, self.marker);
+    //}
+
     self.marker.setMap(map);
 
 };
@@ -62,9 +65,7 @@ var ViewModel = function () {
                 informationPlace = $("#infoWindowMaster").html();
                 ko.cleanNode($("#infoWindowMaster")[0]);
                  google.maps.event.addListener(fourSquareLocal.marker, "click", function () {
-                    //this.selected(true);
-                    fourSquareLocal.infowindow.open(map, fourSquareLocal.marker[i]);
-
+                    this.selected(true);
                 })
 
                 self.fourSquareAllLocals.push(fourSquareLocal);
