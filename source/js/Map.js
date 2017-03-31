@@ -15,29 +15,32 @@ var FourSquareLocal = function (data) {
         title: data.venue.name,
         selected: ko.observable(false)
     });
-
-    self.addContentInfoWindow = function (data) {
-        self.infowindow = new google.maps.InfoWindow({
-            content: data
-        });
-    };
-
     self.placeName = data.venue.name;
     self.placeContact = data.venue.contact.formattedPhone;
     self.placeAddress = data.venue.location.formattedAddress[0];
     self.placeCategories = data.venue.categories[0].name;
     self.placeRating = data.venue.rating;
-
     //atualiza a posição de cada marker na variável bounds
     self.bounds = bounds.extend(self.marker.position);
 
-    google.maps.event.addListener(self.marker, "click", function () {
-        self.infowindow.open(map, self.marker);
-        self.marker.selected(true);
-    });
+    self.addInfoWindow = function (data) {
+        self.infowindow = new google.maps.InfoWindow({
+            content: data
+        });
 
-    self.marker.setMap(map);
+        google.maps.event.addListener(self.marker, "click", function () {
+            self.infowindow.open(map, self.marker);
+            self.marker.selected(true);
+        });
+    };
 
+    self.addMarkers = function () {
+        self.marker.setMap(map);
+    };
+
+    self.removeMarkers = function () {
+        self.marker.setMap(null);
+    };
 };
 
 var ViewModel = function () {
@@ -62,7 +65,8 @@ var ViewModel = function () {
                 var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
                 ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
                 var informationPlace = $("#infoWindowMaster").html();
-                fourSquareLocal.addContentInfoWindow(informationPlace);
+                fourSquareLocal.addMarkers();
+                fourSquareLocal.addInfoWindow(informationPlace);
                 ko.cleanNode($("#infoWindowMaster")[0]);
                 self.fourSquareAllLocals.push(fourSquareLocal);
             }
