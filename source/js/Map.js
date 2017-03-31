@@ -33,9 +33,9 @@ var FourSquareLocal = function (data) {
     //atualiza a posição de cada marker na variável bounds
     self.bounds = bounds.extend(self.marker.position);
 
-    //if (self.marker.selected === ko.observable(true)) {
+    self.marker.addListener('click', function () {
         self.infowindow.open(map, self.marker);
-    //}
+    });
 
     self.marker.setMap(map);
 
@@ -64,7 +64,7 @@ var ViewModel = function () {
                 ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
                 informationPlace = $("#infoWindowMaster").html();
                 ko.cleanNode($("#infoWindowMaster")[0]);
-                 google.maps.event.addListener(fourSquareLocal.marker, "click", function () {
+                google.maps.event.addListener(fourSquareLocal.marker, "click", function () {
                     this.selected(true);
                 })
 
