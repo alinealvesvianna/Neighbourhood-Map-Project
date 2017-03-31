@@ -5,32 +5,42 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="css/style.css">
     <title>Neighbourhood Map Project</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
     <section id="infoWindowMaster">
-        <ul class="infoWindow-list">
-            <li class="infoWindow-name" data-bind="text: placeName"></li>
-            <li class="infoWindow-contact" data-bind="text: placeContact"></li>
-            <li class="infoWindow-address" data-bind="text: placeAddress"></li>
-            <li class="infoWindow-categories" data-bind="text: placeCategories"></li>
-            <li class="infoWindow-rating" data-bind="text: placeRating"></li>
+        <ul class="infoWindow__list">
+            <li class="infoWindow__name" data-bind="text: placeName"></li>
+            <li class="infoWindow__contact" data-bind="text: placeContact"></li>
+            <li class="infoWindow__address" data-bind="text: placeAddress"></li>
+            <li class="infoWindow__categories" data-bind="text: placeCategories"></li>
+            <li class="infoWindow__rating" data-bind="text: placeRating"></li>
         </ul>
     </section>
-    <section id="containerMaster">
-    </section>
-    <div id="map"></div>
-    <!-- <div>
-        <div>
+    <div id="containerMaster">
+        <section class="searchFilter">
             <p></p>
             <form>
-                <input id="field-search" type="text">
-                <button id="button-search" type="button">enviar cidade</button>
+                <input class="searchFilter__field" id="field-search" type="text">
+                <button class="searchFilter__button" id="button-search" type="button">enviar cidade</button>
             </form>
-        </div>
-    </div> -->
+        </section>
+        <section class="loading">
+            <p>Carregando</p>
+        </section>
+        <section class="asideInformation">
+            <article class="asideInformation__content">
+                <h1 class="asideInformation__title"></h1>
+                <p class="asideInformation__text"></p>
+            </article>
+        </section>
+
+
+    </div>
+    <div id="map"></div>
+
     <script src="js/knockout-3.4.1.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyBiInL0pa43U0MNYtexTsxPySm6JzVRyRI&v=3&callback=initialize"></script>
     <script src="js/jquery-3.2.0.min.js"></script>

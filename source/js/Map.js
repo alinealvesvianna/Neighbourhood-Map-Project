@@ -1,5 +1,4 @@
 var map,
-    informationPlace,
     bounds;
 
 var FourSquareLocal = function (data) {
@@ -17,12 +16,11 @@ var FourSquareLocal = function (data) {
         selected: ko.observable(false)
     });
 
-
-    self.infowindow = new google.maps.InfoWindow({
-        content: informationPlace
-    });
-
-    //self.infowindow.setContent(self.marker.informationPlace);
+    self.addContentInfoWindow = function (data) {
+        self.infowindow = new google.maps.InfoWindow({
+            content: data
+        });
+    };
 
     self.placeName = data.venue.name;
     self.placeContact = data.venue.contact.formattedPhone;
@@ -33,8 +31,9 @@ var FourSquareLocal = function (data) {
     //atualiza a posição de cada marker na variável bounds
     self.bounds = bounds.extend(self.marker.position);
 
-    self.marker.addListener('click', function () {
+    google.maps.event.addListener(self.marker, "click", function () {
         self.infowindow.open(map, self.marker);
+        self.marker.selected(true);
     });
 
     self.marker.setMap(map);
@@ -62,12 +61,9 @@ var ViewModel = function () {
             for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                 var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
                 ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
-                informationPlace = $("#infoWindowMaster").html();
+                var informationPlace = $("#infoWindowMaster").html();
+                fourSquareLocal.addContentInfoWindow(informationPlace);
                 ko.cleanNode($("#infoWindowMaster")[0]);
-                google.maps.event.addListener(fourSquareLocal.marker, "click", function () {
-                    this.selected(true);
-                })
-
                 self.fourSquareAllLocals.push(fourSquareLocal);
             }
             //depois que sair do looping, centraliza os markers achados na tela
