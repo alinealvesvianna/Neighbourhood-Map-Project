@@ -47,6 +47,7 @@ var FourSquareLocal = function(data) {
 var ViewModel = function() {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray();
+    self.fourSquareFilterAllLocals = ko.observableArray();
     self.showLoading = ko.observable(true);
     self.searchFieldValue = ko.observable();
 
@@ -95,11 +96,13 @@ var ViewModel = function() {
                     fourSquareLocal.addInfoWindow(informationPlace);
                     ko.cleanNode($("#infoWindowMaster")[0]);
                     self.fourSquareAllLocals.push(fourSquareLocal);
+                    self.fourSquareFilterAllLocals.push(fourSquareLocal);
                 }
                 //depois que sair do looping, centraliza os markers achados na tela
                 map.fitBounds(bounds);
                 self.showLoading(false);
                 console.log(self.fourSquareAllLocals().length)
+                console.log(self.fourSquareFilterAllLocals())
             })
             .fail(function() {
                 self.showLoading(false);
