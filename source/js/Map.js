@@ -1,5 +1,6 @@
 var map,
-    bounds;
+    bounds,
+    geocoder;
 
 var FourSquareLocal = function(data) {
 
@@ -47,6 +48,23 @@ var ViewModel = function() {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray([]);
     self.showLoading = ko.observable(true);
+    self.searchFieldValue = ko.observable();
+
+
+    self.searchLocal = function() {
+        geocoder.geocode({
+            'address': self.searchFieldValue()
+        }, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                map.setCenter(results[0].geometry.location);
+                self.makeRequestFourSquare();
+            } else {
+                alert("Geocode was not successful for the following reason: " + status);
+            }
+        });
+
+    };
+
 
     self.makeRequestFourSquare = function() {
         var locationSearch = map.getCenter().toUrlValue();
@@ -88,7 +106,9 @@ function initialize() {
         zoom: 18,
         disableDefaultUI: true,
         scaleControl: true
-    }
+    };
+
+    geocoder = new google.maps.Geocoder();
 
     bounds = new google.maps.LatLngBounds();
 
