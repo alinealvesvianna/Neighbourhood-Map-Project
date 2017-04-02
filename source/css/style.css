@@ -16,3 +16,19 @@ html, body {
     background: #fff;
     padding: 10px;
 }
+
+.loading{
+  position: fixed;
+    height: 100%;
+    background: blue;
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    z-index: 1000;
+    opacity: 0.5
+}
+
+.hide {
+  display: none!important;
+}

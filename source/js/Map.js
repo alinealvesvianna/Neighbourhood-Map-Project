@@ -1,7 +1,7 @@
 var map,
     bounds;
 
-var FourSquareLocal = function (data) {
+var FourSquareLocal = function(data) {
 
     var self = this;
 
@@ -23,31 +23,32 @@ var FourSquareLocal = function (data) {
     //atualiza a posição de cada marker na variável bounds
     self.bounds = bounds.extend(self.marker.position);
 
-    self.addInfoWindow = function (data) {
+    self.addInfoWindow = function(data) {
         self.infowindow = new google.maps.InfoWindow({
             content: data
         });
 
-        google.maps.event.addListener(self.marker, "click", function () {
+        google.maps.event.addListener(self.marker, "click", function() {
             self.infowindow.open(map, self.marker);
             self.marker.selected(true);
         });
     };
 
-    self.addMarkers = function () {
+    self.addMarkers = function() {
         self.marker.setMap(map);
     };
 
-    self.removeMarkers = function () {
+    self.removeMarkers = function() {
         self.marker.setMap(null);
     };
 };
 
-var ViewModel = function () {
+var ViewModel = function() {
     var self = this;
-    this.fourSquareAllLocals = ko.observableArray([]);
-    self.makeRequestFourSquare = function () {
+    self.fourSquareAllLocals = ko.observableArray([]);
+    self.showLoading = ko.observable(true);
 
+    self.makeRequestFourSquare = function() {
         var locationSearch = map.getCenter().toUrlValue();
         var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";
         fourSquareUrl += $.param({
@@ -59,23 +60,26 @@ var ViewModel = function () {
         });
         fourSquareUrl += "&ll=" + locationSearch;
 
-        $.getJSON(fourSquareUrl, function (data) {
-            var fourSquareData = data.response.groups[0].items;
-            for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
-                var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
-                ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
-                var informationPlace = $("#infoWindowMaster").html();
-                fourSquareLocal.addMarkers();
-                fourSquareLocal.addInfoWindow(informationPlace);
-                ko.cleanNode($("#infoWindowMaster")[0]);
-                self.fourSquareAllLocals.push(fourSquareLocal);
-            }
-            //depois que sair do looping, centraliza os markers achados na tela
-            map.fitBounds(bounds);
-        })
-            .fail(function () {
+        $.getJSON(fourSquareUrl, function(data) {
+                var fourSquareData = data.response.groups[0].items;
+                for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
+                    var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
+                    ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
+                    var informationPlace = $("#infoWindowMaster").html();
+                    fourSquareLocal.addMarkers();
+                    fourSquareLocal.addInfoWindow(informationPlace);
+                    ko.cleanNode($("#infoWindowMaster")[0]);
+                    self.fourSquareAllLocals.push(fourSquareLocal);
+                }
+                //depois que sair do looping, centraliza os markers achados na tela
+                map.fitBounds(bounds);
+                self.showLoading(false);
+            })
+            .fail(function() {
+                self.showLoading(false);
                 console.log('deu ruim');
             });
+
     }
 };
 
@@ -92,14 +96,15 @@ function initialize() {
 
     // pega a geolocalização pela api do HTML5
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             var initialPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             map.setCenter(initialPosition);
             vm.makeRequestFourSquare();
-        }, function () {
+        }, function() {
+            // vm.showLoading(true);
             handleLocationError(true);
             vm.makeRequestFourSquare();
         });

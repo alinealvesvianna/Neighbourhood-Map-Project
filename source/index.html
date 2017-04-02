@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <section id="infoWindowMaster">
+    <section class="hide" id="infoWindowMaster">
         <ul class="infoWindow__list">
             <li class="infoWindow__name" data-bind="text: placeName"></li>
             <li class="infoWindow__contact" data-bind="text: placeContact"></li>
@@ -27,7 +27,7 @@
                 <button class="searchFilter__button" id="button-search" type="button">enviar cidade</button>
             </form>
         </section>
-        <section class="loading">
+        <section class="loading" data-bind="visible: showLoading">
             <p>Carregando</p>
         </section>
         <section class="asideInformation">
