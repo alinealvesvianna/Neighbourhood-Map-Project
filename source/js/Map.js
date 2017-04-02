@@ -46,7 +46,7 @@ var FourSquareLocal = function(data) {
 
 var ViewModel = function() {
     var self = this;
-    self.fourSquareAllLocals = ko.observableArray([]);
+    self.fourSquareAllLocals = ko.observableArray();
     self.showLoading = ko.observable(true);
     self.searchFieldValue = ko.observable();
 
@@ -57,6 +57,7 @@ var ViewModel = function() {
         }, function(results, status) {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
+                self.removeAllMarkes();
                 self.makeRequestFourSquare();
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
@@ -65,6 +66,12 @@ var ViewModel = function() {
 
     };
 
+    self.removeAllMarkes = function() {
+        for (var i = 0, array = self.fourSquareAllLocals().length; i < array; i++) {
+            self.fourSquareAllLocals()[i].removeMarkers();
+        }
+        self.fourSquareAllLocals.removeAll();
+    };
 
     self.makeRequestFourSquare = function() {
         var locationSearch = map.getCenter().toUrlValue();
@@ -92,6 +99,7 @@ var ViewModel = function() {
                 //depois que sair do looping, centraliza os markers achados na tela
                 map.fitBounds(bounds);
                 self.showLoading(false);
+                console.log(self.fourSquareAllLocals().length)
             })
             .fail(function() {
                 self.showLoading(false);
