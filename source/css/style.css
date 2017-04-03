@@ -41,6 +41,8 @@ html, body {
     z-index: 10000;
     background: #fff;
     padding: 10px;
+    overflow: scroll;
+    height:100%;
 }
 
 .asideInformation__content {

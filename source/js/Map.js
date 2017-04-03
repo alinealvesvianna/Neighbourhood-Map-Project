@@ -1,5 +1,4 @@
 var map,
-    bounds,
     geocoder;
 
 var FourSquareLocal = function(data) {
@@ -22,8 +21,12 @@ var FourSquareLocal = function(data) {
     self.placeAddress = data.venue.location.formattedAddress[0];
     self.placeCategories = data.venue.categories[0].name;
     self.placeRating = data.venue.rating;
+
+
     //atualiza a posição de cada marker na variável bounds
-    self.bounds = bounds.extend(self.marker.position);
+    self.refreshPosition = function(bounds) {
+        bounds.extend(self.marker.position);
+    }
 
     self.addInfoWindow = function(data) {
         self.infowindow = new google.maps.InfoWindow({
@@ -53,6 +56,8 @@ var FourSquareLocal = function(data) {
     self.addAnimationSelect = function() {
         if (self.marker.selected(true)) {
             self.marker.setAnimation(google.maps.Animation.BOUNCE);
+            map.setCenter(self.marker.position);
+            map.setZoom(19);
             setTimeout(function() {
                 self.marker.setAnimation(null);
                 self.marker.selected(false);
@@ -68,6 +73,7 @@ var ViewModel = function() {
     self.showLoading = ko.observable(true);
     self.searchFieldValue = ko.observable();
 
+    var bounds = new google.maps.LatLngBounds();
 
     self.searchLocal = function() {
         geocoder.geocode({
@@ -76,6 +82,7 @@ var ViewModel = function() {
             if (status == google.maps.GeocoderStatus.OK) {
                 map.setCenter(results[0].geometry.location);
                 self.removeAllMarkes();
+                self.removeAllFilterLocals();
                 self.makeRequestFourSquare();
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
@@ -89,6 +96,10 @@ var ViewModel = function() {
             self.fourSquareAllLocals()[i].removeMarkers();
         }
         self.fourSquareAllLocals.removeAll();
+    };
+
+    self.removeAllFilterLocals = function() {
+        self.fourSquareFilterAllLocals.removeAll();
     };
 
     self.makeRequestFourSquare = function() {
@@ -108,6 +119,7 @@ var ViewModel = function() {
                 for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                     var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
                     ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
+                    fourSquareLocal.refreshPosition(bounds);
                     var informationPlace = $("#infoWindowMaster").html();
                     fourSquareLocal.addMarkers();
                     fourSquareLocal.addInfoWindow(informationPlace);
@@ -118,8 +130,8 @@ var ViewModel = function() {
                 //depois que sair do looping, centraliza os markers achados na tela
                 map.fitBounds(bounds);
                 self.showLoading(false);
-                console.log(self.fourSquareAllLocals().length)
-                console.log(self.fourSquareFilterAllLocals())
+                console.log("quantidade markers:" + self.fourSquareAllLocals().length)
+                console.log("filtro locais:" + self.fourSquareFilterAllLocals().length)
             })
             .fail(function() {
                 self.showLoading(false);
@@ -137,8 +149,6 @@ function initialize() {
     };
 
     geocoder = new google.maps.Geocoder();
-
-    bounds = new google.maps.LatLngBounds();
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
