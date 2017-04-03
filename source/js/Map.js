@@ -16,6 +16,7 @@ var FourSquareLocal = function(data) {
         title: data.venue.name,
         selected: ko.observable(false)
     });
+
     self.placeName = data.venue.name;
     self.placeContact = data.venue.contact.formattedPhone;
     self.placeAddress = data.venue.location.formattedAddress[0];
@@ -32,7 +33,13 @@ var FourSquareLocal = function(data) {
         google.maps.event.addListener(self.marker, "click", function() {
             self.infowindow.open(map, self.marker);
             self.marker.selected(true);
+            self.addAnimationSelect();
         });
+    };
+
+    self.selectMarkerClickFilter = function() {
+        self.addAnimationSelect();
+        self.infowindow.open(map, self.marker);
     };
 
     self.addMarkers = function() {
@@ -41,6 +48,16 @@ var FourSquareLocal = function(data) {
 
     self.removeMarkers = function() {
         self.marker.setMap(null);
+    };
+
+    self.addAnimationSelect = function() {
+        if (self.marker.selected(true)) {
+            self.marker.setAnimation(google.maps.Animation.BOUNCE);
+            setTimeout(function() {
+                self.marker.setAnimation(null);
+                self.marker.selected(false);
+            }, 2000);
+        }
     };
 };
 

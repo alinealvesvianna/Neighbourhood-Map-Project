@@ -30,10 +30,15 @@
         <section class="loading" data-bind="visible: showLoading">
             <p>Carregando</p>
         </section>
-        <section class="asideInformation">
-            <article class="asideInformation__content">
-                <h1 class="asideInformation__title"></h1>
-                <p class="asideInformation__text"></p>
+        <section class="asideInformation" data-bind="foreach: fourSquareFilterAllLocals">
+            <article class="asideInformation__content" data-bind="click: selectMarkerClickFilter">
+                <h1 class="asideInformation__title" data-bind="text: placeName"></h1>
+                <ul class="iasideInformation__list">
+                    <li class="asideInformation__contact" data-bind="text: placeContact"></li>
+                    <li class="asideInformation__address" data-bind="text: placeAddress"></li>
+                    <li class="asideInformation__categories" data-bind="text: placeCategories"></li>
+                    <li class="asideInformation__rating" data-bind="text: placeRating"></li>
+                </ul>
             </article>
         </section>
 
