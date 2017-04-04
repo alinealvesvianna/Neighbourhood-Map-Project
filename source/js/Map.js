@@ -73,6 +73,7 @@ var ViewModel = function () {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray();
     self.fourSquareFilterAllLocals = ko.observableArray();
+    self.filterCategories = ko.observableArray();
     self.showLoading = ko.observable(true);
 
     var bounds = new google.maps.LatLngBounds(),
@@ -128,19 +129,22 @@ var ViewModel = function () {
             for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                 var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
                 ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
-                //fourSquareLocal.refreshPosition(bounds);
                 var informationPlace = $("#infoWindowMaster").html();
                 fourSquareLocal.addMarkers();
                 fourSquareLocal.addInfoWindow(informationPlace);
                 ko.cleanNode($("#infoWindowMaster")[0]);
                 self.fourSquareAllLocals.push(fourSquareLocal);
                 self.fourSquareFilterAllLocals.push(fourSquareLocal);
+                self.filterCategories.push(fourSquareLocal.placeCategories);
+                //console.log(fourSquareLocal);
+                //console.log(fourSquareLocal.placeCategories);
                 //atualiza a posição de cada marker na variável bounds
                 bounds.extend(fourSquareLocal.marker.position);
             }
             //depois que sair do looping, centraliza os markers achados na tela
             map.fitBounds(bounds);
             self.showLoading(false);
+            console.log(self.filterCategories())
             //console.log("quantidade markers:" + self.fourSquareAllLocals().length)
             //console.log("filtro locais:" + self.fourSquareFilterAllLocals().length)
         })
@@ -175,7 +179,6 @@ function initialize() {
             map.setCenter(initialPosition);
             vm.makeRequestFourSquare();
         }, function () {
-            // vm.showLoading(true);
             handleLocationError(true);
             vm.makeRequestFourSquare();
         });
@@ -193,7 +196,6 @@ function initialize() {
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box
     map.addListener('bounds_changed', function () {
         searchBox.setBounds(map.getBounds());
-        console.log(map.getBounds());
     });
 
     // evento que monitora quando o usuário escolher um endereço do autocomplete
