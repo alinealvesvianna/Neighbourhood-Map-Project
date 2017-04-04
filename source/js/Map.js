@@ -1,4 +1,5 @@
-var map;
+var map,
+    searchBox;
 
 var FourSquareLocal = function (data) {
 
@@ -22,11 +23,6 @@ var FourSquareLocal = function (data) {
     self.placeRating = data.venue.rating;
 
 
-    //atualiza a posição de cada marker na variável bounds
-    self.refreshPosition = function (bounds) {
-        bounds.extend(self.marker.position);
-    }
-
     self.addInfoWindow = function (data) {
         self.infowindow = new google.maps.InfoWindow({
             content: data
@@ -37,13 +33,11 @@ var FourSquareLocal = function (data) {
             self.marker.selected(true);
             self.addAnimationSelect();
         });
-    };
 
-    //self.closeInfoWindow = function () {
-    //    google.maps.event.addListener(self.infoWindow, 'closeclick', function () {
-    //        self.decreaseZoom();
-    //    });
-    //};
+        google.maps.event.addListener(self.infowindow, 'closeclick', function () {
+            self.decreaseZoom();
+        });
+    };
 
     self.selectMarkerClickFilter = function () {
         self.addAnimationSelect();
@@ -62,7 +56,7 @@ var FourSquareLocal = function (data) {
         if (self.marker.selected(true)) {
             self.marker.setAnimation(google.maps.Animation.BOUNCE);
             map.setCenter(self.marker.position);
-            map.setZoom(19);
+            map.setZoom(18);
             setTimeout(function () {
                 self.marker.setAnimation(null);
                 self.marker.selected(false);
@@ -70,9 +64,9 @@ var FourSquareLocal = function (data) {
         }
     };
 
-    //self.decreaseZoom = function () {
-    //    map.setZoom(13);
-    //};
+    self.decreaseZoom = function () {
+        map.setZoom(16);
+    };
 };
 
 var ViewModel = function () {
@@ -80,23 +74,23 @@ var ViewModel = function () {
     self.fourSquareAllLocals = ko.observableArray();
     self.fourSquareFilterAllLocals = ko.observableArray();
     self.showLoading = ko.observable(true);
-    self.searchFieldValue = ko.observable();
 
     var bounds = new google.maps.LatLngBounds(),
-        geocoder = new google.maps.Geocoder();
+    //variável usada pela busca quando posta a o termo digitado no input
+    geocoder = new google.maps.Geocoder();
 
-    self.postLocalizationForm = function () {
-        self.searchLocal(geocoder, map)
+    //quando posta a localização pelo input de busca
+    self.postLocation = function (address) {
+        self.searchLocal(geocoder, map, address)
     };
 
-    self.searchLocal = function (geocoder, resultsMap) {
-        console.log(self.searchFieldValue());
+    self.searchLocal = function (geocoder, resultsMap, address) {
         geocoder.geocode({
-            'address': self.searchFieldValue()
+            'address': address
         }, function (results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 resultsMap.setCenter(results[0].geometry.location);
-                resultsMap.setZoom(13);
+                resultsMap.setZoom(14);
                 self.removeAllMarkes();
                 self.removeAllFilterLocals();
                 self.makeRequestFourSquare();
@@ -134,14 +128,15 @@ var ViewModel = function () {
             for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                 var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
                 ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
-                fourSquareLocal.refreshPosition(bounds);
+                //fourSquareLocal.refreshPosition(bounds);
                 var informationPlace = $("#infoWindowMaster").html();
                 fourSquareLocal.addMarkers();
                 fourSquareLocal.addInfoWindow(informationPlace);
-                //fourSquareLocal.closeInfoWindow();
                 ko.cleanNode($("#infoWindowMaster")[0]);
                 self.fourSquareAllLocals.push(fourSquareLocal);
                 self.fourSquareFilterAllLocals.push(fourSquareLocal);
+                //atualiza a posição de cada marker na variável bounds
+                bounds.extend(fourSquareLocal.marker.position);
             }
             //depois que sair do looping, centraliza os markers achados na tela
             map.fitBounds(bounds);
@@ -160,9 +155,15 @@ function initialize() {
     var mapOptions = {
         zoom: 18,
         disableDefaultUI: true,
-        scaleControl: true
-    };
+        scaleControl: true,
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    },
+        inputSearch = document.getElementById('field-search');
+
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    searchBox = new google.maps.places.SearchBox(inputSearch);
+    map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputSearch);
 
     // pega a geolocalização pela api do HTML5
     if (navigator.geolocation) {
@@ -188,6 +189,20 @@ function initialize() {
         map.setCenter(new google.maps.LatLng(-22.931827, -43.239654));
         console.log(error);
     };
+
+    //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box
+    map.addListener('bounds_changed', function () {
+        searchBox.setBounds(map.getBounds());
+        console.log(map.getBounds());
+    });
+
+    // evento que monitora quando o usuário escolher um endereço do autocomplete
+    searchBox.addListener('places_changed', function () {
+        var places = searchBox.getPlaces();
+        //console.log(places);
+        //console.log(places["0"].formatted_address);
+        vm.postLocation(places["0"].formatted_address);
+    });
 
     var vm = new ViewModel();
     ko.applyBindings(vm, $("#containerMaster")[0]);
