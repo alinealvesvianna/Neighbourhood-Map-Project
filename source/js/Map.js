@@ -112,6 +112,11 @@ var ViewModel = function () {
         self.fourSquareFilterAllLocals.removeAll();
     };
 
+
+    self.showInformationsWithSameCategorie = function () {
+        console.log(this);
+    }
+
     self.makeRequestFourSquare = function () {
         var locationSearch = map.getCenter().toUrlValue();
         var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";

@@ -33,7 +33,7 @@
         </section>
         <section class="asideInformationContainer">
             <div class="asideInformationFilters" data-bind="foreach: filterCategories">
-                <span class="asideInformationFilters__categorie" data-bind="text: $data"></span>
+                <span class="asideInformationFilters__categorie" data-bind="text: $data, click: $parent.showInformationsWithSameCategorie"></span>
             </div>
             <div class="asideInformation" data-bind="foreach: fourSquareFilterAllLocals">
                 <article class="asideInformation__content" data-bind="click: selectMarkerClickFilter">
