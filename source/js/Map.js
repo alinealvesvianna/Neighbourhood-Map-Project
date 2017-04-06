@@ -20,6 +20,7 @@ var FourSquareLocal = function (data) {
     self.placeContact = data.venue.contact.formattedPhone;
     self.placeAddress = data.venue.location.formattedAddress[0];
     self.placeCategories = data.venue.categories[0].name;
+    //self.placeCategories = ko.observable(data.venue.categories[0].name);
     self.placeRating = data.venue.rating;
 
 
@@ -67,13 +68,17 @@ var FourSquareLocal = function (data) {
     self.decreaseZoom = function () {
         map.setZoom(16);
     };
+
+    //self.visibleFilterCategory = ko.observable(true);
+
 };
 
 var ViewModel = function () {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray();
-    self.fourSquareFilterAllLocals = ko.observableArray();
-    self.filterCategories = ko.observableArray();
+    //self.fourSquareFilterAllLocals = ko.observableArray();
+    //self.filterCategories = ko.observableArray();
+    self.currentFilter = ko.observable();
     self.showLoading = ko.observable(true);
 
     var bounds = new google.maps.LatLngBounds(),
@@ -108,14 +113,22 @@ var ViewModel = function () {
         self.fourSquareAllLocals.removeAll();
     };
 
-    self.removeAllFilterLocals = function () {
-        self.fourSquareFilterAllLocals.removeAll();
-    };
+    //self.removeAllFilterLocals = function () {
+    //    self.fourSquareFilterAllLocals.removeAll();
+    //};
 
+    //filtro
+    //self.showInformationsWithSameCategorie = function (data) {
+    //    //console.log(data);
 
-    self.showInformationsWithSameCategorie = function () {
-        console.log(this);
-    }
+    //    for (var i = 0, arrayFilter = self.fourSquareFilterAllLocals().length; i < arrayFilter; i++) {
+    //        console.log(self.fourSquareFilterAllLocals()[i]);
+    //    }
+
+    //    //if (self.fourSquareFilterAllLocals().indexOf(data) !== -1) {
+    //    //    console.log(self.fourSquareFilterAllLocals().indexOf(data))
+    //    //}
+    //};
 
     self.makeRequestFourSquare = function () {
         var locationSearch = map.getCenter().toUrlValue();
@@ -139,25 +152,46 @@ var ViewModel = function () {
                 fourSquareLocal.addInfoWindow(informationPlace);
                 ko.cleanNode($("#infoWindowMaster")[0]);
                 self.fourSquareAllLocals.push(fourSquareLocal);
-                self.fourSquareFilterAllLocals.push(fourSquareLocal);
-                self.filterCategories.push(fourSquareLocal.placeCategories);
+                //self.fourSquareFilterAllLocals.push(fourSquareLocal);
+                //self.filterCategories.push(fourSquareLocal.placeCategories());
                 //console.log(fourSquareLocal);
                 //console.log(fourSquareLocal.placeCategories);
                 //atualiza a posição de cada marker na variável bounds
                 bounds.extend(fourSquareLocal.marker.position);
             }
+            //self.filterCategories();
             //depois que sair do looping, centraliza os markers achados na tela
             map.fitBounds(bounds);
             self.showLoading(false);
-            console.log(self.filterCategories())
-            //console.log("quantidade markers:" + self.fourSquareAllLocals().length)
+            //console.log(self.filterCategories())
+            //console.log(self.fourSquareFilterAllLocals())
             //console.log("filtro locais:" + self.fourSquareFilterAllLocals().length)
         })
             .fail(function () {
                 self.showLoading(false);
                 console.log('deu ruim');
             });
-    }
+    };
+
+
+    //self.filterCategory = function (data) {
+    //    console.log(data)
+    //}
+
+    self.filterCategories = ko.computed(function () {
+        if (self.currentFilter() == undefined) {
+            return self.fourSquareAllLocals();
+        } else {
+            return ko.utils.arrayFilter(self.fourSquareAllLocals(), function (fourSquareLocal) {
+                return fourSquareLocal.placeCategories == self.currentFilter();
+            });
+        }
+    });
+
+    self.filter = function (category) {
+        self.currentFilter(category.placeCategories);
+    };
+
 };
 
 function initialize() {
@@ -206,8 +240,6 @@ function initialize() {
     // evento que monitora quando o usuário escolher um endereço do autocomplete
     searchBox.addListener('places_changed', function () {
         var places = searchBox.getPlaces();
-        //console.log(places);
-        //console.log(places["0"].formatted_address);
         vm.postLocation(places["0"].formatted_address);
     });
 

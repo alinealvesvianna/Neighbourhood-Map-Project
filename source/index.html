@@ -32,12 +32,12 @@
             <p>Carregando</p>
         </section>
         <section class="asideInformationContainer">
-            <div class="asideInformationFilters" data-bind="foreach: filterCategories">
-                <span class="asideInformationFilters__categorie" data-bind="text: $data, click: $parent.showInformationsWithSameCategorie"></span>
+            <div class="asideInformationFilters" data-bind="foreach: fourSquareAllLocals">
+                <span class="asideInformationFilters__categorie" data-bind="text: placeCategories, click: $parent.filter"></span>
             </div>
-            <div class="asideInformation" data-bind="foreach: fourSquareFilterAllLocals">
-                <article class="asideInformation__content" data-bind="click: selectMarkerClickFilter">
-                    <h1 class="asideInformation__title" data-bind="text: placeName"></h1>
+            <div class="asideInformation" data-bind="foreach: filterCategories">
+                <article class="asideInformation__content">
+                    <h1 class="asideInformation__title" data-bind="text: placeName, click: selectMarkerClickFilter"></h1>
                     <ul class="asideInformation__list">
                         <li class="asideInformation__contact" data-bind="text: placeContact"></li>
                         <li class="asideInformation__address" data-bind="text: placeAddress"></li>
