@@ -1,7 +1,7 @@
 var map,
     searchBox;
 
-var FourSquareLocal = function (data) {
+var FourSquareLocal = function(data) {
 
     var self = this;
 
@@ -20,85 +20,82 @@ var FourSquareLocal = function (data) {
     self.placeContact = data.venue.contact.formattedPhone;
     self.placeAddress = data.venue.location.formattedAddress[0];
     self.placeCategories = data.venue.categories[0].name;
-    //self.placeCategories = ko.observable(data.venue.categories[0].name);
     self.placeRating = data.venue.rating;
 
 
-    self.addInfoWindow = function (data) {
+    self.addInfoWindow = function(data) {
         self.infowindow = new google.maps.InfoWindow({
             content: data
         });
 
-        google.maps.event.addListener(self.marker, "click", function () {
+        google.maps.event.addListener(self.marker, "click", function() {
             self.infowindow.open(map, self.marker);
             self.marker.selected(true);
             self.addAnimationSelect();
         });
 
-        google.maps.event.addListener(self.infowindow, 'closeclick', function () {
+        google.maps.event.addListener(self.infowindow, 'closeclick', function() {
             self.decreaseZoom();
         });
     };
 
-    self.selectMarkerClickFilter = function () {
+    self.selectMarkerClickFilter = function() {
         self.addAnimationSelect();
         self.infowindow.open(map, self.marker);
     };
 
-    self.addMarkers = function () {
+    self.addMarkers = function() {
         self.marker.setMap(map);
     };
 
-    self.removeMarkers = function () {
+    self.removeMarkers = function() {
         self.marker.setMap(null);
     };
 
-    self.addAnimationSelect = function () {
+    self.addAnimationSelect = function() {
         if (self.marker.selected(true)) {
             self.marker.setAnimation(google.maps.Animation.BOUNCE);
             map.setCenter(self.marker.position);
             map.setZoom(18);
-            setTimeout(function () {
+            setTimeout(function() {
                 self.marker.setAnimation(null);
                 self.marker.selected(false);
             }, 2000);
         }
     };
 
-    self.decreaseZoom = function () {
+    self.decreaseZoom = function() {
         map.setZoom(16);
     };
-
-    //self.visibleFilterCategory = ko.observable(true);
-
 };
 
-var ViewModel = function () {
+var ViewModel = function() {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray();
     //self.fourSquareFilterAllLocals = ko.observableArray();
     //self.filterCategories = ko.observableArray();
     self.currentFilter = ko.observable();
     self.showLoading = ko.observable(true);
+    self.clearFilter = ko.observable(false);
+
 
     var bounds = new google.maps.LatLngBounds(),
-    //variável usada pela busca quando posta a o termo digitado no input
-    geocoder = new google.maps.Geocoder();
+        //variável usada pela busca quando posta a o termo digitado no input
+        geocoder = new google.maps.Geocoder();
 
     //quando posta a localização pelo input de busca
-    self.postLocation = function (address) {
+    self.postLocation = function(address) {
         self.searchLocal(geocoder, map, address)
     };
 
-    self.searchLocal = function (geocoder, resultsMap, address) {
+    self.searchLocal = function(geocoder, resultsMap, address) {
         geocoder.geocode({
             'address': address
-        }, function (results, status) {
+        }, function(results, status) {
             if (status === google.maps.GeocoderStatus.OK) {
                 resultsMap.setCenter(results[0].geometry.location);
                 resultsMap.setZoom(14);
                 self.removeAllMarkes();
-                self.removeAllFilterLocals();
                 self.makeRequestFourSquare();
             } else {
                 alert("Geocode was not successful for the following reason: " + status);
@@ -106,31 +103,14 @@ var ViewModel = function () {
         });
     };
 
-    self.removeAllMarkes = function () {
+    self.removeAllMarkes = function() {
         for (var i = 0, array = self.fourSquareAllLocals().length; i < array; i++) {
             self.fourSquareAllLocals()[i].removeMarkers();
         }
         self.fourSquareAllLocals.removeAll();
     };
 
-    //self.removeAllFilterLocals = function () {
-    //    self.fourSquareFilterAllLocals.removeAll();
-    //};
-
-    //filtro
-    //self.showInformationsWithSameCategorie = function (data) {
-    //    //console.log(data);
-
-    //    for (var i = 0, arrayFilter = self.fourSquareFilterAllLocals().length; i < arrayFilter; i++) {
-    //        console.log(self.fourSquareFilterAllLocals()[i]);
-    //    }
-
-    //    //if (self.fourSquareFilterAllLocals().indexOf(data) !== -1) {
-    //    //    console.log(self.fourSquareFilterAllLocals().indexOf(data))
-    //    //}
-    //};
-
-    self.makeRequestFourSquare = function () {
+    self.makeRequestFourSquare = function() {
         var locationSearch = map.getCenter().toUrlValue();
         var fourSquareUrl = "https://api.foursquare.com/v2/venues/explore?";
         fourSquareUrl += $.param({
@@ -142,65 +122,71 @@ var ViewModel = function () {
         });
         fourSquareUrl += "&ll=" + locationSearch;
 
-        $.getJSON(fourSquareUrl, function (data) {
-            var fourSquareData = data.response.groups[0].items;
-            for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
-                var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
-                ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
-                var informationPlace = $("#infoWindowMaster").html();
-                fourSquareLocal.addMarkers();
-                fourSquareLocal.addInfoWindow(informationPlace);
-                ko.cleanNode($("#infoWindowMaster")[0]);
-                self.fourSquareAllLocals.push(fourSquareLocal);
-                //self.fourSquareFilterAllLocals.push(fourSquareLocal);
-                //self.filterCategories.push(fourSquareLocal.placeCategories());
-                //console.log(fourSquareLocal);
-                //console.log(fourSquareLocal.placeCategories);
-                //atualiza a posição de cada marker na variável bounds
-                bounds.extend(fourSquareLocal.marker.position);
-            }
-            //self.filterCategories();
-            //depois que sair do looping, centraliza os markers achados na tela
-            map.fitBounds(bounds);
-            self.showLoading(false);
-            //console.log(self.filterCategories())
-            //console.log(self.fourSquareFilterAllLocals())
-            //console.log("filtro locais:" + self.fourSquareFilterAllLocals().length)
-        })
-            .fail(function () {
+        $.getJSON(fourSquareUrl, function(data) {
+                var fourSquareData = data.response.groups[0].items;
+                for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
+                    self.currentFilter(null);
+                    var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
+                    ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
+                    var informationPlace = $("#infoWindowMaster").html();
+                    fourSquareLocal.addMarkers();
+                    fourSquareLocal.addInfoWindow(informationPlace);
+                    ko.cleanNode($("#infoWindowMaster")[0]);
+                    self.fourSquareAllLocals.push(fourSquareLocal);
+                    //console.log(fourSquareLocal);
+                    //console.log(fourSquareLocal.placeCategories);
+                    //atualiza a posição de cada marker na variável bounds
+                    bounds.extend(fourSquareLocal.marker.position);
+                }
+                //depois que sair do looping, centraliza os markers achados na tela
+                map.fitBounds(bounds);
+                self.showLoading(false);
+                //console.log(self.filterCategories())
+                //console.log(self.fourSquareFilterAllLocals())
+                //console.log("filtro locais:" + self.fourSquareFilterAllLocals().length)
+            })
+            .fail(function() {
                 self.showLoading(false);
                 console.log('deu ruim');
             });
     };
 
-
-    //self.filterCategory = function (data) {
-    //    console.log(data)
-    //}
-
-    self.filterCategories = ko.computed(function () {
-        if (self.currentFilter() == undefined) {
+    self.filterCategories = ko.computed(function() {
+        if (self.currentFilter() == undefined || self.currentFilter() == null || self.currentFilter() == "") {
+            self.clearFilter(false);
             return self.fourSquareAllLocals();
         } else {
-            return ko.utils.arrayFilter(self.fourSquareAllLocals(), function (fourSquareLocal) {
+            return ko.utils.arrayFilter(self.fourSquareAllLocals(), function(fourSquareLocal) {
+                self.clearFilter(true);
+                if (fourSquareLocal.placeCategories !== self.currentFilter()) {
+                    fourSquareLocal.removeMarkers();
+                } else {
+                    fourSquareLocal.addMarkers();
+                }
                 return fourSquareLocal.placeCategories == self.currentFilter();
             });
         }
     });
 
-    self.filter = function (category) {
+    self.filter = function(category) {
         self.currentFilter(category.placeCategories);
     };
 
+    self.clearFilterAction = function() {
+        self.currentFilter("");
+        self.fourSquareAllLocals().forEach(function(fourSquareLocal){
+          fourSquareLocal.addMarkers();
+        });
+    };
 };
 
 function initialize() {
     var mapOptions = {
-        zoom: 18,
-        disableDefaultUI: true,
-        scaleControl: true,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    },
+            zoom: 18,
+            disableDefaultUI: true,
+            scaleControl: true,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        },
         inputSearch = document.getElementById('field-search');
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -210,14 +196,14 @@ function initialize() {
 
     // pega a geolocalização pela api do HTML5
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function (position) {
+        navigator.geolocation.getCurrentPosition(function(position) {
             var initialPosition = {
                 lat: position.coords.latitude,
                 lng: position.coords.longitude
             };
             map.setCenter(initialPosition);
             vm.makeRequestFourSquare();
-        }, function () {
+        }, function() {
             handleLocationError(true);
             vm.makeRequestFourSquare();
         });
@@ -233,12 +219,12 @@ function initialize() {
     };
 
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box
-    map.addListener('bounds_changed', function () {
+    map.addListener('bounds_changed', function() {
         searchBox.setBounds(map.getBounds());
     });
 
     // evento que monitora quando o usuário escolher um endereço do autocomplete
-    searchBox.addListener('places_changed', function () {
+    searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
         vm.postLocation(places["0"].formatted_address);
     });
