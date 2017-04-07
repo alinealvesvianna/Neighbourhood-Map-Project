@@ -20,6 +20,9 @@
         </ul>
     </section>
     <div id="containerMaster">
+        <section class="messageError" data-bind="visible: showError">
+            <p class="messageError__txt" data-bind="text: textError"></p>
+        </section>
         <section class="searchFilter">
             <p></p>
             <!--<form class="formSearch" data-bind="submit: postLocalizationForm">-->
@@ -32,7 +35,7 @@
             <p>Carregando</p>
         </section>
         <section class="asideInformationContainer">
-          <a data-bind="visible: clearFilter, click: clearFilterAction">limpar filtro</a>
+            <a data-bind="visible: clearFilter, click: clearFilterAction">limpar filtro</a>
             <div class="asideInformationFilters" data-bind="foreach: fourSquareAllLocals">
                 <span class="asideInformationFilters__categorie" data-bind="text: placeCategories, click: $parent.filter"></span>
             </div>
