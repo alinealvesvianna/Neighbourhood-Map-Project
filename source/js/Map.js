@@ -72,8 +72,6 @@ var FourSquareLocal = function(data) {
 var ViewModel = function() {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray();
-    //self.fourSquareFilterAllLocals = ko.observableArray();
-    //self.filterCategories = ko.observableArray();
     self.currentFilter = ko.observable();
     self.showLoading = ko.observable(true);
     self.clearFilter = ko.observable(false);
@@ -123,6 +121,7 @@ var ViewModel = function() {
         fourSquareUrl += "&ll=" + locationSearch;
 
         $.getJSON(fourSquareUrl, function(data) {
+                self.showLoading(true);
                 var fourSquareData = data.response.groups[0].items;
                 for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                     self.currentFilter(null);
@@ -141,9 +140,6 @@ var ViewModel = function() {
                 //depois que sair do looping, centraliza os markers achados na tela
                 map.fitBounds(bounds);
                 self.showLoading(false);
-                //console.log(self.filterCategories())
-                //console.log(self.fourSquareFilterAllLocals())
-                //console.log("filtro locais:" + self.fourSquareFilterAllLocals().length)
             })
             .fail(function() {
                 self.showLoading(false);
@@ -174,8 +170,8 @@ var ViewModel = function() {
 
     self.clearFilterAction = function() {
         self.currentFilter("");
-        self.fourSquareAllLocals().forEach(function(fourSquareLocal){
-          fourSquareLocal.addMarkers();
+        self.fourSquareAllLocals().forEach(function(fourSquareLocal) {
+            fourSquareLocal.addMarkers();
         });
     };
 };
