@@ -72,6 +72,7 @@ var FourSquareLocal = function (data) {
 var ViewModel = function () {
     var self = this;
     self.fourSquareAllLocals = ko.observableArray();
+    self.teste = ko.observableArray();
     self.currentFilter = ko.observable();
     self.showLoading = ko.observable(true);
     self.clearFilter = ko.observable(false);
@@ -91,7 +92,7 @@ var ViewModel = function () {
     self.searchLocal = function (geocoder, resultsMap, address) {
         self.showLoading(true);
         self.showError(false);
-        self.textError ("");
+        self.textError("");
         geocoder.geocode({
             'address': address
         }, function (results, status) {
@@ -156,6 +157,20 @@ var ViewModel = function () {
             });
     };
 
+    //get a list of used categories http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+    self.justCategories = ko.computed(function () {
+        var categories = ko.utils.arrayMap(self.fourSquareAllLocals(), function (fourSquareLocal) {
+            return fourSquareLocal.placeCategories;
+        });
+        return categories.sort();
+    });
+
+    //get a unique list of used categories http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+    self.uniqueCategories = ko.dependentObservable(function () {
+        return ko.utils.arrayGetDistinctValues(self.justCategories()).sort();
+    });
+
+
     self.filterCategories = ko.computed(function () {
         if (self.currentFilter() == undefined || self.currentFilter() == null || self.currentFilter() == "") {
             self.clearFilter(false);
@@ -174,7 +189,7 @@ var ViewModel = function () {
     });
 
     self.filter = function (category) {
-        self.currentFilter(category.placeCategories);
+        self.currentFilter(category);
     };
 
     self.clearFilterAction = function () {
@@ -223,6 +238,10 @@ function initialize() {
         //console.log(error);
         vm.showError(true);
         vm.textError(error);
+    };
+
+    window.onerror = function (error) {
+        console.log(error);
     };
 
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box

@@ -50,3 +50,7 @@ html, body {
     margin-bottom: 10px
     cursor: pointer;
 }
+
+.asideInformationFilters__categorie{
+  display: block;
+}

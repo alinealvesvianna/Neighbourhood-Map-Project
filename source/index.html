@@ -36,8 +36,8 @@
         </section>
         <section class="asideInformationContainer">
             <a data-bind="visible: clearFilter, click: clearFilterAction">limpar filtro</a>
-            <div class="asideInformationFilters" data-bind="foreach: fourSquareAllLocals">
-                <span class="asideInformationFilters__categorie" data-bind="text: placeCategories, click: $parent.filter"></span>
+            <div class="asideInformationFilters" data-bind="foreach: uniqueCategories">
+                <span class="asideInformationFilters__categorie" data-bind="text: $data, click: $parent.filter"></span>
             </div>
             <div class="asideInformation" data-bind="foreach: filterCategories">
                 <article class="asideInformation__content">
