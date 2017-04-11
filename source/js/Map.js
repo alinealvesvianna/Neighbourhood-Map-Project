@@ -16,11 +16,11 @@ var FourSquareLocal = function (data) {
         selected: ko.observable(false)
     });
 
-    self.placeName = data.venue.name;
-    self.placeContact = data.venue.contact.formattedPhone;
-    self.placeAddress = data.venue.location.formattedAddress[0];
-    self.placeCategories = data.venue.categories[0].name;
-    self.placeRating = data.venue.rating;
+    self.placeName = data.venue.name || "Sem Informação";
+    self.placeContact = data.venue.contact.formattedPhone || "Sem Informação";
+    self.placeAddress = data.venue.location.formattedAddress[0] || "Sem Informação";
+    self.placeCategories = data.venue.categories[0].name || "Sem Informação";
+    self.placeRating = data.venue.rating || "Sem Informação";
 
 
     self.addInfoWindow = function (data) {
@@ -158,6 +158,7 @@ var ViewModel = function () {
     };
 
     //get a list of used categories http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+    //monta o filtro de categorias com o array do four square
     self.justCategories = ko.computed(function () {
         var categories = ko.utils.arrayMap(self.fourSquareAllLocals(), function (fourSquareLocal) {
             return fourSquareLocal.placeCategories;
@@ -166,11 +167,12 @@ var ViewModel = function () {
     });
 
     //get a unique list of used categories http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
+    //Não repetir categorias ao fazer bind do filtro
     self.uniqueCategories = ko.dependentObservable(function () {
         return ko.utils.arrayGetDistinctValues(self.justCategories()).sort();
     });
 
-
+    //monta o aside com resultados da busca
     self.filterCategories = ko.computed(function () {
         if (self.currentFilter() == undefined || self.currentFilter() == null || self.currentFilter() == "") {
             self.clearFilter(false);
