@@ -33,7 +33,7 @@
         <section class="asideInformationContainer">
             <a data-bind="visible: clearFilter, click: clearFilterAction">limpar filtro</a>
             <div class="asideInformationFilters" data-bind="foreach: uniqueCategories">
-                <span class="asideInformationFilters__categorie" data-bind="text: $data, click: $parent.filter"></span>
+                <span class="asideInformationFilters__categorie" data-bind="text: $data, click: $parent.filter, css: 'asideInformationFilters__categorieBackground' + $index()"></span>
             </div>
             <div class="asideInformation" data-bind="foreach: filterCategories">
                 <article class="asideInformation__content">

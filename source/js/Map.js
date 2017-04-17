@@ -149,11 +149,11 @@ var ViewModel = function () {
             self.textError("");
             self.showLoading(false);
         })
-            .fail(function () {
+            .fail(function (jqXHR, textStatus) {
                 self.showLoading(false);
                 //console.log('deu ruim');
                 self.showError(true);
-                self.textError("deu ruim na solicitação de dados para o foursquare");
+                self.textError("deu ruim na solicitação de dados para o foursquare" +  textStatus);
             });
     };
 
@@ -243,7 +243,7 @@ function initialize() {
     };
 
     window.onerror = function (error) {
-        console.log(error);
+        alert(error);
     };
 
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box

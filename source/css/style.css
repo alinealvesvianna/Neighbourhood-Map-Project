@@ -9,19 +9,19 @@ html, body {
     height: 100%;
 }
 
+#containerMaster {
+    /*position: relative;*/
+    width: 100%;
+}
 
 
-  #containerMaster{
-    position: relative;
-  }
-
-  .searchFilter {
+/*.searchFilter {
     width:25%;
     position:absolute;
     left:50%;
     height:100px;
     background: red;
-  }
+  }*/
 
 .searchFilter__field {
     -webkit-appearance: none;
@@ -58,12 +58,18 @@ html, body {
     display: none!important;
 }
 
-.asideInformationContainer{
-  
+.asideInformationContainer {
+    position: absolute;
+    right: 0;
+    height: 100%;
+    width: 30%;
+    z-index: 1000;
+    background-color: #4e4e4e;
+    overflow-y: scroll;
 }
 
 .asideInformation {
-    position: absolute;
+    /*position: absolute;
     right: 0;
     width: 25%;
     top: 0;
@@ -71,14 +77,119 @@ html, body {
     background: #fff;
     padding: 10px;
     overflow: scroll;
-    height: 100%;
+    height: 100%;*/
 }
 
 .asideInformation__content {
-    border: 1px solid red;
-    margin-bottom: 10px cursor: pointer;
+    border-bottom: 1px solid #777575;
+    padding: 0.5em 1em;
+}
+
+.asideInformationFilters {
+    padding: 0.5em;
+    text-align: center;
+    border-bottom: 2px dotted #9c8603;
 }
 
 .asideInformationFilters__categorie {
-    display: block;
+    display: inline-block;
+    color: #fff;
+    font-size: 0.9em;
+    width: 42%;
+    padding: 0.2em 0.4em;
+    margin-bottom: 0.5em;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    vertical-align: top;
+    cursor: pointer;
+}
+
+.asideInformationFilters__categorieBackground0 {
+    background: #ff6a00;
+    border-color: #c35304;
+    color: #fff;
+}
+
+.asideInformationFilters__categorieBackground1 {
+    background: #ff0000;
+    border-color: #b60000;
+    color: #fff;
+}
+
+.asideInformationFilters__categorieBackground2 {
+    background: #ffd800;
+    border-color: #b79c01;
+    color: #857103;
+}
+
+.asideInformationFilters__categorieBackground3 {
+    background: #dc9f2d;
+    border-color: #98700d;
+    color: #825e1b;
+}
+
+.asideInformationFilters__categorieBackground4 {
+    background: #903306;
+    border-color: #712704;
+    color: #ffc18a;
+}
+
+.asideInformationFilters__categorieBackground5 {
+    background: #9e1110;
+    border-color: #5a1414;
+    color: #fff;
+}
+
+.asideInformationFilters__categorieBackground6 {
+    background: #00ca6e;
+    border-color: #23714e;
+    color: #225555;
+}
+
+.asideInformationFilters__categorieBackground7 {
+    background: #373e5d;
+    border-color: #242c50;
+    color: #fff;
+}
+
+.asideInformationFilters__categorieBackground8 {
+  background: #0089ec;
+  border-color: #2a4d67;
+  color: #dedede;
+}
+
+.asideInformationFilters__categorieBackground9 {
+  background: #79337d;
+  border-color: #502352;
+  color: #bbbaba;
+}
+
+.asideInformationFilters__categorieBackground10 {
+    background: #b200ff;
+    border-color: #8509ba;
+    color: #b0a1b6;
+}
+
+.asideInformationFilters__categorieBackground11 {
+    background: #ff006e;
+    border-color: #ad0b51;
+    color: #a58a96;
+}
+
+.asideInformationFilters__categorieBackground12 {
+    background: #e0a20e;
+    border-color: #8a6408;
+    color: #4e3d15;
+}
+
+.asideInformationFilters__categorieBackground13 {
+    background: #000;
+    border-color: #1d1c1c;
+    color: #fff;
+}
+
+.asideInformationFilters__categorieBackground14 {
+    background: #335253;
+    border-color: #203334;
+    color: #81adae;
 }
