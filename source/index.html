@@ -27,13 +27,14 @@
         </section>
         <section class="searchFilter">
             <p></p>
-            <input class="searchFilter__field" id="field-search" type="text" placeholder="busque aqui o local desejado">
+            <input class="searchFilter__field" id="field-search" type="text" placeholder="Busque aqui o local desejado">
         </section>
         <section class="loading" data-bind="visible: showLoading">
             <p>Carregando</p>
         </section>
-        <section class="asideInformationContainer">
-            <p class="asideInformationContainer__txt">Selecione a categoria que deixa filtrar a pesquisa:</p>
+        <span class="badge" data-bind="click: toggleAside">Ver Filtro</span>
+        <section class="asideInformationContainer" data-bind="visible: showAside">
+            <p class="asideInformationContainer__txt">Selecione a categoria para filtrar a pesquisa:</p>
             <a class="cleanFilter" data-bind="visible: clearFilter, click: clearFilterAction">
                 <span class="icon-circle-cross cleanFilter__close"></span> Limpar Filtro
             </a>

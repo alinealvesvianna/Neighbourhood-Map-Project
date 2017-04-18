@@ -33,18 +33,39 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
   }*/
 
 .searchFilter__field {
-    -webkit-appearance: none;
-    appearance: none;
-    border: 1px solid #ccc;
-    display: block;
-    background-color: #FFFFFF;
-    transition: border 0.3s;
-    text-transform: uppercase;
-    margin: 0 auto;
+  -webkit-appearance: none;
+      appearance: none;
+      border: 5px solid #1677a2;
+      padding: 5px;
+      display: block;
+      background-color: #FFFFFF;
+      transition: border 0.3s;
+      margin: 0 auto;
+      height: 40px;
+      width: 25%;
+      right: 25%;
+      top: 2%!important;
+}
+
+.badge {
+    position: absolute;
+    right: 30%;
+    z-index: 999;
+    font-size: 1.3em;
+    color: #fff;
+    background: #1677a2;
+    padding: 0.5em;
+    top: 1em;
+    border-radius: 5px 0 0 5px;
+    width: 7%;
+    border-width: 2px 0 2px 2px;
+    border-color: #fff;
+    border-style: solid;
+    box-shadow: -4px 2px 4px 1px rgba(0, 0, 0, 0.3);
 }
 
 .warning {
-    z-index: 10000;
+    z-index: 1000;
     position: absolute;
     top: 0;
     background: #fff;
@@ -176,6 +197,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
 }
 
 .asideInformationFilters__categorieBackground0 {
+    /*background: #a9a9a9;*/
     background: #a9a9a9;
     /*border-color: #c35304;*/
     /*color: #fff;*/
@@ -263,4 +285,9 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
     background: #335253;
     /*border-color: #203334;*/
     /*color: #81adae;*/
+}
+
+
+.teste{
+  background: #f0f;
 }
