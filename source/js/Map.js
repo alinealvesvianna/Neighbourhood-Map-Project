@@ -78,6 +78,9 @@ var ViewModel = function() {
     self.showError = ko.observable(false);
     self.textError = ko.observable();
     self.showAside = ko.observable(false);
+    self.textShowAside = ko.observable(false);
+    self.classShowAside = ko.observable(false);
+
 
     var bounds = new google.maps.LatLngBounds(),
         //variável usada pela busca quando posta a o termo digitado no input
@@ -89,8 +92,12 @@ var ViewModel = function() {
     };
 
     self.toggleAside = function(){
-      var currentShow = this.showAside();
-      this.showAside(!currentShow);
+      var currentShow = self.showAside();
+      var currentText = self.textShowAside();
+      var currentClass = self.classShowAside();
+      self.showAside(!currentShow);
+      self.textShowAside(!currentText);
+      self.classShowAside(!currentClass);
     };
 
     self.searchLocal = function(geocoder, resultsMap, address) {

@@ -32,7 +32,7 @@
         <section class="loading" data-bind="visible: showLoading">
             <p>Carregando</p>
         </section>
-        <span class="badge" data-bind="click: toggleAside">Ver Filtro</span>
+        <span class="badge" data-bind="click: toggleAside, text: textShowAside() ? 'Esconder Filtro' : 'Ver Filtro', css: classShowAside() ? 'positionEndTag' : 'positionInicialTag'"></span>
         <section class="asideInformationContainer" data-bind="visible: showAside">
             <p class="asideInformationContainer__txt">Selecione a categoria para filtrar a pesquisa:</p>
             <a class="cleanFilter" data-bind="visible: clearFilter, click: clearFilterAction">
