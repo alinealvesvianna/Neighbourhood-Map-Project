@@ -1,5 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 html, body {
-    font-family: Arial, sans-serif;
+    font: 12px/1.5 'Open Sans', sans-serif;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -7,6 +12,10 @@ html, body {
 
 #map {
     height: 100%;
+}
+
+ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
+    font-family: 'Open Sans', sans-serif;
 }
 
 #containerMaster {
@@ -64,132 +73,194 @@ html, body {
     height: 100%;
     width: 30%;
     z-index: 1000;
-    background-color: #4e4e4e;
+    background-color: #dcdcdc;
     overflow-y: scroll;
+    box-shadow: 2px 5px 5px 4px rgba(0, 0, 0, 0.5);
 }
 
-.asideInformation {
-    /*position: absolute;
-    right: 0;
-    width: 25%;
-    top: 0;
-    z-index: 10000;
-    background: #fff;
-    padding: 10px;
-    overflow: scroll;
-    height: 100%;*/
+.asideInformationContainer__txt {
+    color: #b75151;
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.166em;
+    padding: 1em 0;
+}
+
+.cleanFilter {
+    display: block;
+    padding: 0.5em 0.5em 0.5em 1.5em;
+    font-size: 1.166em;
+    color: #fff;
+    cursor: pointer;
+    background: #1677a2;
+    font-weight: bold;
+}
+
+.cleanFilter__close {
+    font-size: 1.5em;
+    display: inline-block;
+    vertical-align: bottom;
+    margin-right: 0.4em;
 }
 
 .asideInformation__content {
-    border-bottom: 1px solid #777575;
-    padding: 0.5em 1em;
+    border-bottom: 1px solid #c7c7c7;
+    padding: 0.5em 1.5em;
 }
 
 .asideInformationFilters {
-    padding: 0.5em;
+    padding: 1em;
     text-align: center;
-    border-bottom: 2px dotted #9c8603;
+    border-bottom: 2px dotted #c7c7c7;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    display: flex;
 }
 
-.asideInformationFilters__categorie {
+.asideInformation__title {
+    font-size: 1.266em;
+    font-weight: bold;
+    color: #3583a7;
+    margin: 1em 0;
+}
+
+.asideInformation__list {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.asideInformation__item {
+    margin-bottom: 1em;
+}
+
+.asideInformation__label {
+    font-size: 1.366em;
     display: inline-block;
+    color: #1677a2;
+    margin-right: 0.3em;
+    vertical-align: middle;
+}
+
+.asideInformation__label:not(.icon-star-outline) {
+    font-weight: 600;
+}
+
+.asideInformation__information {
+    font-size: 1.166em;
+    color: #4489a9;
+    margin-left: 0.3em;
+}
+
+
+/*.asideInformation__contact {
+    font-size: 1.066em;
+    color: #5d676b;
+}*/
+
+.asideInformationFilters__categorie {
     color: #fff;
-    font-size: 0.9em;
-    width: 42%;
-    padding: 0.2em 0.4em;
-    margin-bottom: 0.5em;
-    border: 1px solid #fff;
+    font-size: 1em;
+    width: 29%;
+    margin-bottom: 2%;
+    margin-right: 1%;
+    padding: 0.5em;
     border-radius: 5px;
-    vertical-align: top;
+    vertical-align: middle;
     cursor: pointer;
+    font-weight: 600;
+}
+
+.asideInformationFilters__categorie:nth-child(3n) {
+    margin-right: 0;
 }
 
 .asideInformationFilters__categorieBackground0 {
-    background: #ff6a00;
-    border-color: #c35304;
-    color: #fff;
+    background: #a9a9a9;
+    /*border-color: #c35304;*/
+    /*color: #fff;*/
 }
 
 .asideInformationFilters__categorieBackground1 {
-    background: #ff0000;
-    border-color: #b60000;
-    color: #fff;
+    background: #979fa2;
+    /*border-color: #b60000;*/
+    /*color: #fff;*/
 }
 
 .asideInformationFilters__categorieBackground2 {
-    background: #ffd800;
-    border-color: #b79c01;
-    color: #857103;
+    background: #8c9ea5;
+    /*border-color: #b79c01;*/
+    /*color: #857103;*/
 }
 
 .asideInformationFilters__categorieBackground3 {
-    background: #dc9f2d;
-    border-color: #98700d;
-    color: #825e1b;
+    background: #829ca7;
+    /*border-color: #98700d;*/
+    /*color: #825e1b;*/
 }
 
 .asideInformationFilters__categorieBackground4 {
-    background: #903306;
-    border-color: #712704;
-    color: #ffc18a;
+    background: #7697a5;
+    /*border-color: #712704;*/
+    /*color: #ffc18a;*/
 }
 
 .asideInformationFilters__categorieBackground5 {
-    background: #9e1110;
-    border-color: #5a1414;
-    color: #fff;
+    background: #6d94a5;
+    /*border-color: #5a1414;*/
+    /*color: #fff;*/
 }
 
 .asideInformationFilters__categorieBackground6 {
-    background: #00ca6e;
-    border-color: #23714e;
-    color: #225555;
+    background: #6094ab;
+    /*border-color: #23714e;*/
+    /*color: #225555;*/
 }
 
 .asideInformationFilters__categorieBackground7 {
-    background: #373e5d;
-    border-color: #242c50;
-    color: #fff;
+    background: #518ba5;
+    /*border-color: #242c50;*/
+    /*color: #fff;*/
 }
 
 .asideInformationFilters__categorieBackground8 {
-  background: #0089ec;
-  border-color: #2a4d67;
-  color: #dedede;
+    background: #4489a9;
+    /*border-color: #2a4d67;*/
+    /*color: #dedede;*/
 }
 
 .asideInformationFilters__categorieBackground9 {
-  background: #79337d;
-  border-color: #502352;
-  color: #bbbaba;
+    background: #3583a7;
+    /*border-color: #502352;*/
+    /*color: #bbbaba;*/
 }
 
 .asideInformationFilters__categorieBackground10 {
-    background: #b200ff;
-    border-color: #8509ba;
-    color: #b0a1b6;
+    background: #2b7da2;
+    /*border-color: #8509ba;*/
+    /*color: #b0a1b6;*/
 }
 
 .asideInformationFilters__categorieBackground11 {
-    background: #ff006e;
-    border-color: #ad0b51;
-    color: #a58a96;
+    background: #1677a2;
+    /*border-color: #ad0b51;*/
+    /*color: #a58a96;*/
 }
 
 .asideInformationFilters__categorieBackground12 {
     background: #e0a20e;
-    border-color: #8a6408;
-    color: #4e3d15;
+    /*border-color: #8a6408;*/
+    /*color: #4e3d15;*/
 }
 
 .asideInformationFilters__categorieBackground13 {
     background: #000;
-    border-color: #1d1c1c;
-    color: #fff;
+    /*border-color: #1d1c1c;*/
+    /*color: #fff;*/
 }
 
 .asideInformationFilters__categorieBackground14 {
     background: #335253;
-    border-color: #203334;
-    color: #81adae;
+    /*border-color: #203334;*/
+    /*color: #81adae;*/
 }

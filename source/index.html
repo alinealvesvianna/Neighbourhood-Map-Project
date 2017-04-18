@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Neighbourhood Map Project</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="css/icomoon.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -31,7 +33,10 @@
             <p>Carregando</p>
         </section>
         <section class="asideInformationContainer">
-            <a data-bind="visible: clearFilter, click: clearFilterAction">limpar filtro</a>
+            <p class="asideInformationContainer__txt">Selecione a categoria que deixa filtrar a pesquisa:</p>
+            <a class="cleanFilter" data-bind="visible: clearFilter, click: clearFilterAction">
+                <span class="icon-circle-cross cleanFilter__close"></span> Limpar Filtro
+            </a>
             <div class="asideInformationFilters" data-bind="foreach: uniqueCategories">
                 <span class="asideInformationFilters__categorie" data-bind="text: $data, click: $parent.filter, css: 'asideInformationFilters__categorieBackground' + $index()"></span>
             </div>
@@ -39,10 +44,22 @@
                 <article class="asideInformation__content">
                     <h1 class="asideInformation__title" data-bind="text: placeName, click: selectMarkerClickFilter"></h1>
                     <ul class="asideInformation__list">
-                        <li class="asideInformation__contact" data-bind="text: placeContact"></li>
-                        <li class="asideInformation__address" data-bind="text: placeAddress"></li>
-                        <li class="asideInformation__categories" data-bind="text: placeCategories"></li>
-                        <li class="asideInformation__rating" data-bind="text: placeRating"></li>
+                        <li class="asideInformation__contact asideInformation__item">
+                            <span class="asideInformation__label icon-phone"></span>
+                            <span class="asideInformation__information" data-bind="text: placeContact"></span>
+                        </li>
+                        <li class="asideInformation__address asideInformation__item">
+                            <span class="asideInformation__label icon-direction"></span>
+                            <span class="asideInformation__information" data-bind="text: placeAddress"></span>
+                        </li>
+                        <li class="asideInformation__categories asideInformation__item">
+                            <span class="asideInformation__label icon-tags"></span>
+                            <span class="asideInformation__information" data-bind="text: placeCategories"></span>
+                        </li>
+                        <li class="asideInformation__rating asideInformation__item">
+                            <span class="asideInformation__label icon-star-outline"></span>
+                            <span class="asideInformation__information" data-bind="text: placeRating"></span>
+                        </li>
                     </ul>
                 </article>
             </div>
