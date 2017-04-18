@@ -30,10 +30,11 @@
             <input class="searchFilter__field" id="field-search" type="text" placeholder="Busque aqui o local desejado">
         </section>
         <section class="loading" data-bind="visible: showLoading">
-            <p>Carregando</p>
+            <span class="loading__animation"></span>
+            <p class="loading__text">Aguarde enquanto buscamos as melhores atrações para você!</p>
         </section>
-        <span class="badge" data-bind="click: toggleAside, text: textShowAside() ? 'Esconder Filtro' : 'Ver Filtro', css: classShowAside() ? 'positionEndTag' : 'positionInicialTag'"></span>
-        <section class="asideInformationContainer" data-bind="visible: showAside">
+        <span class="badge" data-bind="click: toggleAside, text: textShowAside() ? 'Esconder Filtro' : 'Ver Filtro', css: classShowAside() ? 'positionEndBadge' : 'positionInicialBadge'"></span>
+        <section class="asideInformationContainer" data-bind=" css: showAside() ? 'positionEndFilter' : 'positionInicialFilter'">
             <p class="asideInformationContainer__txt">Selecione a categoria para filtrar a pesquisa:</p>
             <a class="cleanFilter" data-bind="visible: clearFilter, click: clearFilterAction">
                 <span class="icon-circle-cross cleanFilter__close"></span> Limpar Filtro

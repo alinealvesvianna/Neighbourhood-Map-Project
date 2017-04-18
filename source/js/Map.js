@@ -116,7 +116,7 @@ var ViewModel = function() {
                 self.showLoading(false);
                 self.showError(true);
                 //alert("Geocode was not successful for the following reason: " + status);
-                self.textError("Geocode was not successful for the following reason: " + status);
+                self.textError("Geocode não teve sucesso pelo seguinte motivo: " + status);
             }
         });
     };
@@ -164,7 +164,7 @@ var ViewModel = function() {
                 self.showLoading(false);
                 //console.log('deu ruim');
                 self.showError(true);
-                self.textError("deu ruim na solicitação de dados para o foursquare" + textStatus);
+                self.textError("deu ruim na solicitação de dados para o foursquare pelo seguinte motivo: " + textStatus);
             });
     };
 
@@ -260,9 +260,6 @@ function initialize() {
         vm.textError(error);
     };
 
-    window.onerror = function(error) {
-        alert(error);
-    };
 
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box
     map.addListener('bounds_changed', function() {
