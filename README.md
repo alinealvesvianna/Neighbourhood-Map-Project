@@ -1,11 +1,19 @@
 ## Website Performance Optimization portfolio project
 
-### Visualizar o Projeto
+### Instruções
 
-Para visualizar o projeto corretamente, faça o seguinte:
+1. Abra o [projeto](https://alinealvesvianna.github.io/Neighbourhood-Map-Project/) no seu desktop ou mobile.
 
-* Instale os pacotes de dependência do projeto, navegando até a pasta e executando o npm com os seguintes comandos:
+2. O navegador vai solicitar a sua autorização para pegar sua geolocalização:
 
+  * Caso seja autorizado, o app buscará 15 locais em um raio de 1km do local onde você está.
+  * Caso não seja autorizado, o app buscará  os 15 locais a partir de um endereço default, definido no bairro da Tijuca, no Rio de Janeiro.
+
+3. É possível digitar o local que deseja procurar na caixa de busca. O endereço será auto completado à medida em que o endereço é digitado.
+
+4. O app possui um filtro onde exibe mais informações de cada local achado. Para abrir, basta clicar na aba "ver filtro".
+
+5. É possível filtrar os resultados por categoria. Basta abrir o filtro na aba "ver filtro", e clicar na categoria desejada, logo no topo do filtro. Ao clicar na categoria desejada, será exibido apenas estabelecimentos daquela categoria, assim como os pins exibidos no mapa.
 
 ```
 $> cd /path/to/frontend-nanodegree-mobile-portfolio
