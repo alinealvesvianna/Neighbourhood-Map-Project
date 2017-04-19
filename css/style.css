@@ -107,7 +107,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
 }
 
 .positionEndBadge+.badge__number {
-    right: 40.4%;
+    right: 65.4%;
     background: #901313;
     color: #fff;
 }
@@ -425,5 +425,8 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
     .messageError {
         width: 50%;
         right: 25%;
+    }
+    .positionEndBadge+.badge__number {
+        right: 40.4%;
     }
 }
