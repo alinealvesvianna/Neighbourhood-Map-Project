@@ -6,7 +6,7 @@
 
 2. O navegador vai solicitar a sua autorização para pegar sua geolocalização:
   * Caso seja autorizado, o app buscará 15 locais em um raio de 1km do local onde você está.
-  * Caso não seja autorizado, o app buscará  os 15 locais a partir de um endereço default, definido no bairro da Tijuca, no Rio de Janeiro.
+  * Caso não seja autorizado, o app buscará  os 15 locais a partir de um endereço default, definido na Tijuca, bairro localizado no Rio de Janeiro.
 
 3. É possível digitar mudar o local procurado na caixa de busca. O endereço será auto completado à medida em que o endereço for digitado.
 
