@@ -10,7 +10,7 @@
 
 3. É possível digitar mudar o local procurado na caixa de busca. O endereço será auto completado à medida em que o endereço for digitado.
 
-4. O app possui um filtro que exibe mais informações de cada estabelecimento localizado. Para abrir, basta clicar na aba "ver filtro".
+4. O app possui um filtro que exibe mais informações de cada estabelecimento localizado. Para abrir, basta clicar na aba "ver filtro". E para fechar, basta clicar na aba "esconder filtro"
 
 5. É possível filtrar os resultados por categoria. Basta abrir o filtro na aba "ver filtro", e clicar na categoria desejada, logo no topo do filtro. Após clicar, serão exibidos apenas estabelecimentos daquela categoria no filtro e no mapa.
 
