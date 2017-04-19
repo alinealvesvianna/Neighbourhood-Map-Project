@@ -91,13 +91,13 @@ var ViewModel = function() {
         self.searchLocal(geocoder, map, address)
     };
 
-    self.toggleAside = function(){
-      var currentShow = self.showAside();
-      var currentText = self.textShowAside();
-      var currentClass = self.classShowAside();
-      self.showAside(!currentShow);
-      self.textShowAside(!currentText);
-      self.classShowAside(!currentClass);
+    self.toggleAside = function() {
+        var currentShow = self.showAside();
+        var currentText = self.textShowAside();
+        var currentClass = self.classShowAside();
+        self.showAside(!currentShow);
+        self.textShowAside(!currentText);
+        self.classShowAside(!currentClass);
     };
 
     self.searchLocal = function(geocoder, resultsMap, address) {
@@ -218,6 +218,10 @@ var ViewModel = function() {
             fourSquareLocal.addMarkers();
         });
     };
+
+    self.numberOfPlaces = ko.pureComputed(function() {
+        return self.fourSquareAllLocals().length;
+    });
 };
 
 function initialize() {

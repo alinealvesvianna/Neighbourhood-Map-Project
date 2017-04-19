@@ -56,6 +56,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
     width: 60%;
     right: 20%;
     top: 2%!important;
+    font-size: 1.2em;
 }
 
 .badge {
@@ -64,7 +65,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
     font-size: 1.3em;
     color: #fff;
     background: #1677a2;
-    padding: 0.5em;
+    padding: 1em 3em 0.5em 0.5em;
     top: 0%;
     border-radius: 0 0 5px 5px;
     width: auto;
@@ -78,9 +79,37 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
     transition: right .25s ease;
 }
 
+.badge__number {
+    position: absolute;
+    z-index: 1003;
+    background: #de0606;
+    color: #fff;
+    font-size: 1em;
+    display: block;
+    border-radius: 2em;
+    text-align: center;
+    padding: 1em;
+    height: 1em;
+    width: 1em;
+    line-height: 1em;
+    vertical-align: middle;
+    font-weight: bold;
+    right: 0.5em;
+    top: 0.4em;
+    will-change: contents;
+    -webkit-transition: right .25s ease;
+    transition: right .25s ease;
+}
+
 .positionEndBadge {
     right: 60.5%;
     background: #e01b1b;
+}
+
+.positionEndBadge+.badge__number {
+    right: 40.4%;
+    background: #901313;
+    color: #fff;
 }
 
 .positionInicialBadge {
@@ -119,6 +148,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
 .loading__animation, .loading__animation:before, .loading__animation:after {
     border-radius: 50%;
 }
+
 
 /*Créditos da animação do loading https://projects.lukehaas.me/css-loaders/*/
 

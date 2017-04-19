@@ -33,7 +33,8 @@
             <span class="loading__animation"></span>
             <p class="loading__text">Aguarde enquanto buscamos as melhores atrações para você!</p>
         </section>
-        <span class="badge" data-bind="click: toggleAside, text: textShowAside() ? 'Esconder Filtro' : 'Ver Filtro', css: classShowAside() ? 'positionEndBadge' : 'positionInicialBadge'"></span>
+        <span class="badge" data-bind="click: toggleAside, text: textShowAside() ? 'Esconder Filtro ' : 'Ver Filtro ', css: classShowAside() ? 'positionEndBadge' : 'positionInicialBadge'"></span>
+        <span class="badge__number" data-bind="text: numberOfPlaces()"></span>
         <section class="asideInformationContainer" data-bind=" css: showAside() ? 'positionEndFilter' : 'positionInicialFilter'">
             <p class="asideInformationContainer__txt">Selecione a categoria para filtrar a pesquisa:</p>
             <a class="cleanFilter" data-bind="visible: clearFilter, click: clearFilterAction">
