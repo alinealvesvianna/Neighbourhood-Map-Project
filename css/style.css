@@ -77,6 +77,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
     will-change: contents;
     -webkit-transition: right .25s ease;
     transition: right .25s ease;
+    cursor: pointer;
 }
 
 .badge__number {
