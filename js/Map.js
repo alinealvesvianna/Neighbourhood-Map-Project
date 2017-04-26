@@ -88,7 +88,7 @@ var ViewModel = function() {
 
     //quando posta a localização pelo input de busca
     self.postLocation = function(address) {
-        self.searchLocal(geocoder, map, address)
+        self.searchLocal(geocoder, map, address);
     };
 
     self.toggleAside = function() {
@@ -174,7 +174,7 @@ var ViewModel = function() {
         var categories = ko.utils.arrayMap(self.fourSquareAllLocals(), function(fourSquareLocal) {
             return fourSquareLocal.placeCategories;
         });
-        if (self.currentFilter() == undefined || self.currentFilter() == null || self.currentFilter() == "") {
+        if (self.currentFilter() === undefined || self.currentFilter() === null || self.currentFilter() === "") {
             self.clearFilter(false);
             return categories;
         } else {
@@ -192,7 +192,7 @@ var ViewModel = function() {
 
     //monta o aside com resultados da busca
     self.filterCategories = ko.computed(function() {
-        if (self.currentFilter() == undefined || self.currentFilter() == null || self.currentFilter() == "") {
+        if (self.currentFilter() === undefined || self.currentFilter() === null || self.currentFilter() === "") {
             self.clearFilter(false);
             return self.fourSquareAllLocals();
         } else {
@@ -262,7 +262,7 @@ function initialize() {
         //console.log(error);
         vm.showError(true);
         vm.textError(error);
-    };
+    }
 
 
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box
@@ -278,4 +278,4 @@ function initialize() {
 
     var vm = new ViewModel();
     ko.applyBindings(vm, $("#containerMaster")[0]);
-};
+}
