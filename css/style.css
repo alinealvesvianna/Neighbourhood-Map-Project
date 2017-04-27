@@ -82,7 +82,7 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
 
 .badge__number {
     position: absolute;
-    z-index: 1003;
+    z-index: 1000;
     background: #de0606;
     color: #fff;
     font-size: 1em;
@@ -407,6 +407,54 @@ ul, li, p, a, span, div, label, button, nav, h1, h2, h3, h4, h5, h6 {
 
 .asideInformationFilters__categorieBackground14 {
     background: #335253;
+}
+
+.errorGoogleMaps {
+    width: 100%;
+    height: 100%;
+    background: #ff004d;
+    opacity: 1;
+    z-index: 100000;
+    position: absolute;
+}
+
+.errorGoogleMaps__txt {
+    color: #fff;
+    font-size: 3em;
+    text-align: center;
+    top: 50%;
+    position: relative;
+    font-weight: bold;
+}
+
+.findHowManyPlaces {
+    position: absolute;
+    top: 50%;
+    z-index: 1000;
+    left: 25%;
+    background: #1677a2;
+    padding: 2em 1em;
+    border-radius: 0.5em;
+    width: 50%;
+}
+
+.findHowManyPlaces__txt {
+    color: #fff;
+    font-size: 2em;
+    text-align: center;
+}
+
+.findHowManyPlaces__number {
+  background: #ffffff;
+  color: #1677a2;
+  font-size: 1em;
+  border-radius: 1em;
+  text-align: center;
+  padding: 0.2em;
+  height: 0.5em;
+  width: 0.5em;
+  vertical-align: middle;
+  font-weight: bold;
 }
 
 @media only screen and (min-width: 60em) {

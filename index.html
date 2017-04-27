@@ -12,12 +12,12 @@
 </head>
 
 <body>
-    <section class="errorGoogleMaps" data-bind="visible: showErrorLoadMaps">
-      <p class="errorGoogleMaps__txt" data-bind="text: textErrorLoadMaps"></p>
+    <section id="messageError" class="" data-bind="css: showErrorLoadMaps() ? 'errorGoogleMaps' : 'hide'">
+        <p class="errorGoogleMaps__txt" data-bind="text: textErrorLoadMaps"></p>
     </section>
 
     <div id="containerMaster">
-        <section id="messageError" class="messageError" data-bind="visible: showError">
+        <section class="messageError" data-bind="visible: showError">
             <p class="messageError__txt" data-bind="text: textError"></p>
         </section>
         <section class="searchFilter">
@@ -30,6 +30,9 @@
         </section>
         <span class="badge" data-bind="click: toggleAside, text: textShowAside() ? 'Esconder Filtro ' : 'Ver Filtro ', css: classShowAside() ? 'positionEndBadge' : 'positionInicialBadge'"></span>
         <span class="badge__number" data-bind="text: numberOfPlaces()"></span>
+        <div data-bind="css: showHowManyPlaces() ? 'findHowManyPlaces' : 'hide'">
+            <p class="findHowManyPlaces__txt">Achamos <span class="findHowManyPlaces__number" data-bind="text: numberOfPlaces()"></span> lugares! Clique em <strong>"ver filtro"</strong> para mais detalhes.</p>
+        </div>
         <section class="asideInformationContainer" data-bind=" css: showAside() ? 'positionEndFilter' : 'positionInicialFilter'">
             <p class="asideInformationContainer__txt">Selecione a categoria para filtrar a pesquisa:</p>
             <a class="cleanFilter" data-bind="visible: clearFilter, click: clearFilterAction">
@@ -68,7 +71,7 @@
     <script src="js/knockout-3.4.1.js"></script>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/Map.js"></script>
-    <script async defer onerror="errorGoogleApi()" src="https://maps.googleapis.com/sksk/api/js?libraries=places,geometry&key=AIzaSyBiInL0pa43U0MNYtexTsxPySm6JzVRyRI&v=3&callback=initialize"></script>
+    <script async defer onerror="errorGoogleApi()" src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyBiInL0pa43U0MNYtexTsxPySm6JzVRyRI&v=3&callback=initialize"></script>
 </body>
 
 </html>

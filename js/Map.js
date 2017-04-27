@@ -89,6 +89,7 @@ var ViewModel = function() {
     self.fourSquareAllLocals = ko.observableArray();
     self.currentFilter = ko.observable();
     self.showLoading = ko.observable(true);
+    self.showHowManyPlaces = ko.observable();
     self.clearFilter = ko.observable(false);
     self.showError = ko.observable(false);
     self.textError = ko.observable();
@@ -268,9 +269,17 @@ function initialize() {
             };
             map.setCenter(initialPosition);
             vm.makeRequestFourSquare();
+            vm.showHowManyPlaces(true);
+            setTimeout(function() {
+                vm.showHowManyPlaces(false);
+            }, 3100);
         }, function() {
             handleLocationError(true);
             vm.makeRequestFourSquare();
+            vm.showHowManyPlaces(true);
+            setTimeout(function() {
+                vm.showHowManyPlaces(false);
+            }, 3100);
         });
     } else {
         handleLocationError(false);
@@ -280,7 +289,6 @@ function initialize() {
     function handleLocationError(browserHasGeolocation) {
         var error = browserHasGeolocation ? 'Error: Não aceitaram a permissão para pegar a localização' : 'Seu browser não suporta geolocalização.';
         map.setCenter(new google.maps.LatLng(-22.931827, -43.239654));
-        //console.log(error);
         vm.showError(true);
         vm.textError(error);
     }
@@ -294,7 +302,6 @@ function initialize() {
         vm.fitBoundsMap();
     });
 
-
     // evento que monitora quando o usuário escolher um endereço do autocomplete
     searchBox.addListener('places_changed', function() {
         var places = searchBox.getPlaces();
@@ -305,22 +312,13 @@ function initialize() {
     ko.applyBindings(vm, $("#containerMaster")[0]);
 };
 
-var Banana = function(){
-  var self = this;
-  self.showError = ko.observable(false);
-  self.textError = ko.observable();
-
-}
-
+var ErrorGoogleMaps = function() {
+    var self = this;
+    self.showErrorLoadMaps = ko.observable(true);
+    self.textErrorLoadMaps = ko.observable("Tivemos algum problema para carregar o google maps... Por favor, verifique a sua conexão.");
+};
 
 function errorGoogleApi() {
-
-  var deuErro = new Banana();
-  ko.applyBindings(deuErro, $("#messageError")[0]);
-
-    deuErro.showError(true);
-    deuErro.textError("Tivemos algum problema em carregar o google maps...Por favor, tenta mais tarde!");
-
-
-
-};
+    var errorMaps = new ErrorGoogleMaps();
+    ko.applyBindings(errorMaps, $("#messageError")[0]);
+}
