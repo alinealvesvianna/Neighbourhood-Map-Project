@@ -12,17 +12,12 @@
 </head>
 
 <body>
-    <section class="hide" id="infoWindowMaster">
-        <ul class="infoWindow__list">
-            <li class="infoWindow__name" data-bind="text: placeName"></li>
-            <li class="infoWindow__contact" data-bind="text: placeContact"></li>
-            <li class="infoWindow__address" data-bind="text: placeAddress"></li>
-            <li class="infoWindow__categories" data-bind="text: placeCategories"></li>
-            <li class="infoWindow__rating" data-bind="text: placeRating"></li>
-        </ul>
+    <section class="errorGoogleMaps" data-bind="visible: showErrorLoadMaps">
+      <p class="errorGoogleMaps__txt" data-bind="text: textErrorLoadMaps"></p>
     </section>
+
     <div id="containerMaster">
-        <section class="messageError" data-bind="visible: showError">
+        <section id="messageError" class="messageError" data-bind="visible: showError">
             <p class="messageError__txt" data-bind="text: textError"></p>
         </section>
         <section class="searchFilter">
@@ -71,9 +66,9 @@
     <div id="map"></div>
 
     <script src="js/knockout-3.4.1.js"></script>
-    <script async defer src="https://maps.googleapis.com/maps/api/js?libraries=places,geometry&key=AIzaSyBiInL0pa43U0MNYtexTsxPySm6JzVRyRI&v=3&callback=initialize"></script>
     <script src="js/jquery-3.2.0.min.js"></script>
     <script src="js/Map.js"></script>
+    <script async defer onerror="errorGoogleApi()" src="https://maps.googleapis.com/sksk/api/js?libraries=places,geometry&key=AIzaSyBiInL0pa43U0MNYtexTsxPySm6JzVRyRI&v=3&callback=initialize"></script>
 </body>
 
 </html>

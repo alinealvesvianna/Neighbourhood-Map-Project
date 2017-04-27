@@ -1,4 +1,5 @@
 var map,
+    infowindow,
     searchBox;
 
 var FourSquareLocal = function(data) {
@@ -22,26 +23,31 @@ var FourSquareLocal = function(data) {
     self.placeCategories = data.venue.categories[0].name || "Sem Informação";
     self.placeRating = data.venue.rating || "Sem Informação";
 
+    var contentInfowindow = '<ul class="infoWindow__list">'
+    contentInfowindow += '<li class="infoWindow__name">' + self.placeName + '</li>'
+    contentInfowindow += '<li class="infoWindow__name">' + self.placeContact + '</li>'
+    contentInfowindow += '<li class="infoWindow__name">' + self.placeAddress + '</li>'
+    contentInfowindow += '<li class="infoWindow__name">' + self.placeCategories + '</li>'
+    contentInfowindow += '<li class="infoWindow__name">' + self.placeRating + '</li>'
+    contentInfowindow += '</ul>'
 
-    self.addInfoWindow = function(data) {
-        self.infowindow = new google.maps.InfoWindow({
-            content: data
-        });
-
+    self.addInfoWindow = function() {
         google.maps.event.addListener(self.marker, "click", function() {
-            self.infowindow.open(map, self.marker);
+            infowindow.setContent(contentInfowindow);
+            infowindow.open(map, self.marker);
             self.marker.selected(true);
             self.addAnimationSelect();
         });
 
-        google.maps.event.addListener(self.infowindow, 'closeclick', function() {
+        google.maps.event.addListener(infowindow, 'closeclick', function() {
             self.decreaseZoom();
         });
     };
 
     self.selectMarkerClickFilter = function() {
+        infowindow.setContent(contentInfowindow);
         self.addAnimationSelect();
-        self.infowindow.open(map, self.marker);
+        infowindow.open(map, self.marker);
     };
 
     self.addMarkers = function() {
@@ -52,15 +58,24 @@ var FourSquareLocal = function(data) {
         self.marker.setMap(null);
     };
 
+    self.showMarker = function() {
+        self.marker.setVisible(true);
+    };
+
+    self.hideMarker = function() {
+        self.marker.setVisible(false);
+    };
+
     self.addAnimationSelect = function() {
         if (self.marker.selected(true)) {
             self.marker.setAnimation(google.maps.Animation.BOUNCE);
-            map.setCenter(self.marker.position);
             map.setZoom(18);
+            // map.setCenter(self.marker.getPosition());
+            map.panTo(self.marker.getPosition());
             setTimeout(function() {
                 self.marker.setAnimation(null);
                 self.marker.selected(false);
-            }, 2000);
+            }, 1400);
         }
     };
 
@@ -89,15 +104,6 @@ var ViewModel = function() {
     //quando posta a localização pelo input de busca
     self.postLocation = function(address) {
         self.searchLocal(geocoder, map, address);
-    };
-
-    self.toggleAside = function() {
-        var currentShow = self.showAside();
-        var currentText = self.textShowAside();
-        var currentClass = self.classShowAside();
-        self.showAside(!currentShow);
-        self.textShowAside(!currentText);
-        self.classShowAside(!currentClass);
     };
 
     self.searchLocal = function(geocoder, resultsMap, address) {
@@ -145,17 +151,14 @@ var ViewModel = function() {
                 for (var i = 0, lengthFS = fourSquareData.length; i < lengthFS; i++) {
                     self.currentFilter(null);
                     var fourSquareLocal = new FourSquareLocal(fourSquareData[i]);
-                    ko.applyBindings(fourSquareLocal, $("#infoWindowMaster")[0]);
-                    var informationPlace = $("#infoWindowMaster").html();
                     fourSquareLocal.addMarkers();
-                    fourSquareLocal.addInfoWindow(informationPlace);
-                    ko.cleanNode($("#infoWindowMaster")[0]);
+                    fourSquareLocal.addInfoWindow();
                     self.fourSquareAllLocals.push(fourSquareLocal);
                     //atualiza a posição de cada marker na variável bounds
                     bounds.extend(fourSquareLocal.marker.position);
                 }
                 //depois que sair do looping, centraliza os markers achados na tela
-                map.fitBounds(bounds);
+                self.fitBoundsMap();
                 self.showError(false);
                 self.textError("");
                 self.showLoading(false);
@@ -168,6 +171,10 @@ var ViewModel = function() {
             });
     };
 
+    self.fitBoundsMap = function() {
+        map.fitBounds(bounds); // `bounds` is a `LatLngBounds` object
+    };
+
     //get a list of used categories http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
     //monta o filtro de categorias com o array do four square
     self.justCategories = ko.computed(function() {
@@ -178,15 +185,19 @@ var ViewModel = function() {
             self.clearFilter(false);
             return categories;
         } else {
-            return ko.utils.arrayFilter(self.justCategories(), function(category) {
-                return category == self.currentFilter();
+            // return ko.utils.arrayFilter(self.justCategories(), function(category) {
+            //     return category == self.currentFilter();
+            // });
+            //sugestão do revisor da udacity
+            self.justCategories().filter((category) => {
+                return category == self.currentFilter(); // return only odd numbers
             });
         }
     });
 
     //get a unique list of used categories http://www.knockmeout.net/2011/04/utility-functions-in-knockoutjs.html
     //Não repetir categorias ao fazer bind do filtro
-    self.uniqueCategories = ko.dependentObservable(function() {
+    self.uniqueCategories = ko.computed(function() {
         return ko.utils.arrayGetDistinctValues(self.justCategories()).sort();
     });
 
@@ -199,23 +210,32 @@ var ViewModel = function() {
             return ko.utils.arrayFilter(self.fourSquareAllLocals(), function(fourSquareLocal) {
                 self.clearFilter(true);
                 if (fourSquareLocal.placeCategories !== self.currentFilter()) {
-                    fourSquareLocal.removeMarkers();
+                    fourSquareLocal.hideMarker();
                 } else {
-                    fourSquareLocal.addMarkers();
+                    fourSquareLocal.showMarker();
                 }
                 return fourSquareLocal.placeCategories == self.currentFilter();
             });
         }
     });
 
+    self.toggleAside = function() {
+        var currentShow = self.showAside();
+        var currentText = self.textShowAside();
+        var currentClass = self.classShowAside();
+        self.showAside(!currentShow);
+        self.textShowAside(!currentText);
+        self.classShowAside(!currentClass);
+    };
+
     self.filter = function(category) {
         self.currentFilter(category);
     };
 
     self.clearFilterAction = function() {
-        self.currentFilter("");
+        self.currentFilter('');
         self.fourSquareAllLocals().forEach(function(fourSquareLocal) {
-            fourSquareLocal.addMarkers();
+            fourSquareLocal.showMarker();
         });
     };
 
@@ -234,6 +254,7 @@ function initialize() {
         inputSearch = document.getElementById('field-search');
 
     map = new google.maps.Map(document.getElementById('map'), mapOptions);
+    infowindow = new google.maps.InfoWindow();
 
     searchBox = new google.maps.places.SearchBox(inputSearch);
     map.controls[google.maps.ControlPosition.TOP_LEFT].push(inputSearch);
@@ -264,11 +285,15 @@ function initialize() {
         vm.textError(error);
     }
 
-
     //adiciona listener no mapa para quando a geolocalização mudar, atulizar a posição no search box
     map.addListener('bounds_changed', function() {
         searchBox.setBounds(map.getBounds());
     });
+
+    google.maps.event.addDomListener(window, 'resize', function() {
+        vm.fitBoundsMap();
+    });
+
 
     // evento que monitora quando o usuário escolher um endereço do autocomplete
     searchBox.addListener('places_changed', function() {
@@ -278,4 +303,24 @@ function initialize() {
 
     var vm = new ViewModel();
     ko.applyBindings(vm, $("#containerMaster")[0]);
+};
+
+var Banana = function(){
+  var self = this;
+  self.showError = ko.observable(false);
+  self.textError = ko.observable();
+
 }
+
+
+function errorGoogleApi() {
+
+  var deuErro = new Banana();
+  ko.applyBindings(deuErro, $("#messageError")[0]);
+
+    deuErro.showError(true);
+    deuErro.textError("Tivemos algum problema em carregar o google maps...Por favor, tenta mais tarde!");
+
+
+
+};
