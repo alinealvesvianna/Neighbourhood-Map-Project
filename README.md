@@ -15,3 +15,5 @@
 5. É possível filtrar os resultados por categoria. Basta abrir o filtro na aba "ver filtro", e clicar na categoria desejada, logo no topo do filtro. Após clicar, serão exibidos apenas estabelecimentos daquela categoria no filtro e no mapa.
 
 6. Ao clicar no título de cada estabelecimento listado no filtro, o mapa será centraliza no seu pin, e exibirá uma janela com as suas informações.
+
+#### O projeto utilizou a API do foursquare para fornecer informações sobre os estabelecimentos da localização buscada, e a API do google maps para as interações de mapa.
