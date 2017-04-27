@@ -186,12 +186,8 @@ var ViewModel = function() {
             self.clearFilter(false);
             return categories;
         } else {
-            // return ko.utils.arrayFilter(self.justCategories(), function(category) {
-            //     return category == self.currentFilter();
-            // });
-            //sugestão do revisor da udacity
-            self.justCategories().filter((category) => {
-                return category == self.currentFilter(); // return only odd numbers
+            return ko.utils.arrayFilter(self.justCategories(), function(category) {
+                return category == self.currentFilter();
             });
         }
     });
