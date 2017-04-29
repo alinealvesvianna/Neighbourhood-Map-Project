@@ -1,10 +1,10 @@
-## Neighbourhood Map Project
+# Neighbourhood Map Project
 
 Descrição do projeto
 --------------
 Este projeto tem como objetivo buscar 15 estabelecimentos no raio de 1km de uma localização pré-definida ou baseada na localização do usuário, sendo possível filtrar por categoria e ver informações básicas sobre os locais. A app foi desenvolvido com o framework MVVM KnockoutJs, e utilizou as API's do Google Maps e Foursquare para usar as funcionalidades do mapa e buscar conteúdo sobre os estabelecimentos pesquisados.
 
-### Instruções para rodar o projeto
+## Instruções para rodar o projeto
 
 1. Clone ou baixe o projeto para o seu computador;
 2. Instale os pacotes de dependência do projeto, navegando até a pasta e executando o npm com os seguintes comandos:
@@ -23,7 +23,7 @@ Este projeto tem como objetivo buscar 15 estabelecimentos no raio de 1km de uma 
 4. Depois de concluídas as etapas 1, 2 e 3 abra o arquivo **index.html** e ache locais legais no seu bairro S2.
 
 
-#### Instruções para navegar pelo app
+## Instruções para navegar pelo app
 
 1. Abra o [projeto](https://alinealvesvianna.github.io/Neighbourhood-Map-Project/) no seu desktop ou mobile.
 
