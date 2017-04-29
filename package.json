@@ -1,0 +1,33 @@
+{
+  "name": "neighbourhood-map-project",
+  "version": "1.0.0",
+  "description": "Projeto de localização de comércios no raio de 1km da localização definida, com o objetivo de aplicar o design pattern MVVM com o framework KnockoutJs, e utilizar conteúdo de API's de terceiros. Nesse projeto utilizo a API do Foursquare e do Google Maps  ",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alinealvesvianna/Neighbourhood-Map-Project.git"
+  },
+  "keywords": [
+    "Neighbourhood",
+    "Map",
+    "KnockoutJs",
+    "DesignPatterns"
+  ],
+  "author": "Aline Vianna",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alinealvesvianna/Neighbourhood-Map-Project/issues"
+  },
+  "homepage": "https://github.com/alinealvesvianna/Neighbourhood-Map-Project#readme",
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-contrib-clean": "^1.1.0",
+    "grunt-contrib-copy": "^1.0.0",
+    "grunt-contrib-cssmin": "^2.1.0",
+    "grunt-minified": "0.0.6",
+    "grunt-mkdir": "^1.0.0"
+  }
+}

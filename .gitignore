@@ -1,9 +1,6 @@
 # ignora todos os arquivos instalados pelo NPM
 node_modules/
 
-# ignora todos os arquivos gerados pelo grunt
-dist/
-
 # ignora arquivos gerados pelo mac
 ._.DS_Store
 .DS_Store
