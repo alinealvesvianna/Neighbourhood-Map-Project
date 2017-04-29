@@ -20,7 +20,7 @@ Este projeto tem como objetivo buscar 15 estabelecimentos no raio de 1km de uma 
   $> grunt
   ``
   
-4. Depois de concluídas as etapas 1, 2 e 3 abra o arquivo **index.html** e ache seus locais legais no seu bairro S2.
+4. Depois de concluídas as etapas 1, 2 e 3 abra o arquivo **index.html** e ache locais legais no seu bairro S2.
 
 
 #### Instruções para navegar pelo app
