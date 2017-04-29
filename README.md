@@ -12,13 +12,14 @@ Este projeto tem como objetivo buscar 15 estabelecimentos no raio de 1km de uma 
   ````
   $> cd /path/to/Neighbourhood-Map-Project
   $> npm install
-  ```
-3. Depois de instalar os pacotes, execute o grunt para gerar a pasta "dist",
-onde estará o código otimizado e com os caminhos corretos para o projeto funcionar corretamente.
+  ````
+  
+3. Depois de instalar os pacotes, execute o grunt para gerar a pasta "dist", onde estará o código otimizado e com os caminhos corretos para o projeto funcionar corretamente.
 
   ``
   $> grunt
   ``
+  
 4. Depois de concluídas as etapas 1, 2 e 3 abra o arquivo **index.html** e ache seus locais legais no seu bairro S2.
 
 
